@@ -1,0 +1,68 @@
+import { Component, OnInit } from '@angular/core';
+import { AuthService} from '../../../core/service/auth.service';
+import {Router} from '@angular/router'
+@Component({
+  selector: 'app-authentification',
+  templateUrl: './authentification.component.html',
+  styleUrls: ['./authentification.component.scss']
+})
+export class AuthentificationComponent implements OnInit {
+
+  email = "";
+  password="";
+  message = ""
+
+  errorMessage = ''; //validation error handle
+  error: { name: string, message: string} = {
+    name: "",
+    message:""
+  }; //for firebase error handle
+
+  constructor(private authservice: AuthService, private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  clearErrorMessage() {
+    this.errorMessage = '';
+    this.error = { name:'', message: ''}
+  }
+
+  login(user) {
+
+    this.clearErrorMessage()
+    if(this.validateForm(user.email, user.password))
+    {
+      this.authservice.loginWithEmail(user.email, user.password)
+      .then(() => {
+      
+       this.router.navigate(['shop'])
+      }).catch(_error => {
+        this.error = _error
+        this.router.navigate(['login'])
+      })
+    }
+  }
+
+  validateForm(email, password) {
+    if(email.length === 0) 
+    {
+      this.errorMessage = 'please enter id';
+      return false;
+    }
+
+    if(password.length === 0) 
+    {
+      this.errorMessage = 'please enter password';
+      return false;
+    }
+
+    if(password.length < 6 ) {
+      this.errorMessage = 'password should be at least 6 char';
+      return false;
+    }
+
+    this.errorMessage = '';
+    return true
+  }
+}

@@ -1,0 +1,44 @@
+.center{
+    display: flex;
+    justify-content: center;
+   
+
+}
+
+
+
+.title{
+    left: 50%;
+    font-size: 40px;
+    display:block;
+    margin: 10px 0;
+}
+
+button {
+    border: 2px solid #fff;
+    background-color:#131313;
+    color: #fff;
+    font-size: 1.4em;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 20px 80px;
+    transition: all .3s linear;
+    
+    margin: 10px 0;
+    display: inline-block;
+
+    &:hover {
+        background-color: #fff;
+        border: 2px solid #131313;
+        color: #131313;
+        cursor: pointer;
+    }
+
+}
+
+a {
+    color: #131313;
+     &:hover {
+         font-weight: bolder;
+     }
+}

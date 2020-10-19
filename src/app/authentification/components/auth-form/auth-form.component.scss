@@ -1,0 +1,20 @@
+
+label {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+input {
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+
+    &:focus{
+        outline: none;
+        border-bottom: 2px solid rgb(70, 70, 70);
+    }
+}
+

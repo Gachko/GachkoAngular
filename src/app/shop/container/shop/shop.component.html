@@ -1,0 +1,36 @@
+
+
+<!-- 
+<div class="container">
+
+    <input type="text" #search >
+    
+    <ul class="list">
+        <div *ngFor="let item of goods">
+        
+            <app-goods-item  [item]="item" (addToWishList)="addToWishList($event)"></app-goods-item>
+      
+        </div>
+    </ul>
+
+   
+</div> -->
+
+
+
+<div class="container">
+
+    <app-filter (checkGenre) = "checkedGenre($event)"></app-filter>
+
+
+    
+    <!-- <ul class="list"> -->
+        <!-- <app-preloader *ngIf="loading"></app-preloader> -->
+        
+            <app-goods-item *ngIf="!loading"  [items]="goods | async" (addToWishList)="addToWishList($event)"></app-goods-item>
+      
+  
+    <!-- </ul> -->
+
+   
+</div>

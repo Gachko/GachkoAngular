@@ -1,1 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    margin:0;
+    font-size: 15px;
+    color:#333;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    width:100%;
+    max-width: 1230px;
+    margin:0 auto;
+    padding: 0 1em;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5 {
+    margin: 0;
+}
+
+
+//-------------TOOLTIP--------------
+
+.tooltip-container {
+    position: relative;
+  }
+  
+  .tooltip {
+    background: rgba(248, 248, 248, 0.7);
+    color: #131313;
+    font-weight: 200;
+    line-height: 1;
+    font-size: 14px;
+    padding: 5px 7px;
+    border: 1px solid #131313;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    white-space: nowrap;
+    display: none;
+  }
+  
+  .tooltip--active {
+    display: block;
+  }
+  
+  .tooltip:before {
+    position: absolute;
+    content: ' ';
+    top: 50%;
+    margin-top: -5px;
+    left: -5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    border-color: transparent rgba(27, 27, 27, 0.7) transparent transparent;
+    display: block;
+  }
+
+  .text-danger{
+    color: rgb(105, 0, 0);
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+
+  .auth-form{
+    position: absolute;
+    top: 30%;
+    background-color: rgb(238, 238, 238);
+    padding: 10px 30px;
+    border: 1px solid #b3b0b0;
+   
+}
+
+.form-auth{
+
+  height: 970px;
+  background: url('./assets/registration.jpg') no-repeat center fixed;
+  background-size: cover; 
+}

@@ -1,0 +1,39 @@
+
+<div class="item-view">
+  
+       
+    
+   
+<div *ngIf="good | async as good ">
+    <div class="home">
+        <a  [routerLink] ="['/shop']">BACK TO SHOP</a>
+    </div>
+    <div class="container ">
+        
+        <div class="description">
+            
+            <div class="picture">
+                <img src="{{good.pathToImg}}">
+            </div>
+            <div class="info">
+                <h2 class="info-name">{{ good.name | uppercase }}</h2>
+                <h4 class="info-author">{{ good.author | uppercase }}</h4>
+                <span class="info-year">{{ good.year }}</span>
+                <br>
+                <span class="info-genre">{{ good.genre | uppercase }}</span>
+                <br>
+                <span class="info-cost">{{ good.cost | currencyBYN }}</span>
+                <br>
+                <a class="info-btn" (click)="add(good)">В КОРЗИНУ</a>
+                <ul class="info-song">
+                    <li *ngFor="let song of good.songs" class="info-song_item">
+                        {{song}}
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>

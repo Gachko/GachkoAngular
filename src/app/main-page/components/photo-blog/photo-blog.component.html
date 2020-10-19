@@ -1,0 +1,9 @@
+<div class="photos" >    
+    <div *ngFor="let item of photos;let i = index;" class="item">
+        <img [src]="item.img" alt="" class="item-photo">
+        <div class="item-text">
+            <p class="maintext">{{ item.text }}</p>
+            <p class="author">-{{ item.author }}-</p>
+        </div>
+    </div>   
+</div>

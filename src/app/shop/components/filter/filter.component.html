@@ -1,0 +1,5 @@
+<div class="filter">
+    <label *ngFor ="let radio of genre">
+        <input type="radio" value="{{radio.value}}"  [checked]="radio.checked" name = "checkGenre" (click)="chooseGenre($event, radio)" > {{radio.genre}}
+    </label>
+</div>

@@ -1,0 +1,64 @@
+.info{
+    margin-top: 200px;
+    margin-bottom: 40px;
+}
+
+.relative {
+    position: relative;
+}
+
+.sum {
+    position: absolute;
+    right: 110px;
+    font-weight: normal;
+    
+    span{
+    font-weight: bolder;
+    margin-right: 30px;
+    }
+}
+
+
+.container-inner{
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    
+}
+
+.message {
+    text-align: center;
+    h3{
+        font-size: 50px;
+    }
+
+    p{
+        font-size: 20px;
+
+    }
+
+    a{
+        display: inline-block;
+        border: 2px solid #fff;
+        background-color:#131313;
+        color: #fff;
+        font-size: 1.4em;
+        text-decoration: none;
+        font-size: 15px;
+        padding: 20px 80px;
+        transition: all .3s linear;
+    
+     
+    
+
+    &:hover {
+        background-color: #fff;
+        border: 2px solid #131313;
+        color: #131313;
+        cursor: pointer;
+    }
+        
+    }
+}
+

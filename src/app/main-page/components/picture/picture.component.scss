@@ -1,0 +1,76 @@
+.block{
+    position: relative;
+   width: 100%;
+ 
+}
+.block-img{
+    max-width:100%; 
+    height:auto;
+    display: block;
+}
+.text{
+    position: absolute;
+    left: 15rem;
+    top: 20rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 23px;
+    line-height: 0.9em;
+    text-shadow:
+    1px 1px 0 rgb(54, 54, 54),
+    2px 2px 0 rgb(117, 117, 117),
+    3px 3px 0 rgb(131, 131, 131),
+    4px 4px 0 rgb(255, 255, 255);
+    transition: all 1s;
+    
+}
+.text:hover {
+    text-shadow:
+     1px -1px 0  rgb(54, 54, 54),
+     2px -2px 0 rgb(117, 117, 117),
+     4px -4px 0 rgb(255, 255, 255);
+    color: #131313;
+     cursor: pointer;
+ }
+
+@media(max-width:650px) {
+    .text {
+        font-size: 16px;
+    }
+}
+
+@media(max-width:586px) {
+    .text {
+        left: 10rem;
+        top: 10rem;
+        font-size: 16px;
+    }
+}
+
+@media(max-width:426px) {
+    .text {
+        left: 10rem;
+        top: 10rem;
+        font-size: 13px;
+    }
+}
+
+@media(max-width:378px) {
+    .text {
+        left: 10rem;
+        top: 10rem;
+        font-size: 10px;
+    }
+}
+
+@media(max-width:342px) {
+    .text {
+        font-size: 7px;
+    }
+}
+
+@media(max-width:280px) {
+    .text {
+        display: none;
+    }
+}

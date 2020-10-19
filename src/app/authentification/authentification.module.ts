@@ -1,0 +1,36 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule} from '@angular/forms';
+import { AuthentificationComponent } from './container/authentification/authentification.component';
+import {RegistrationComponent} from './container/registration/registration.component';
+import { Routes,RouterModule } from '@angular/router';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { AuthRememberComponent } from './components/auth-remember/auth-remember.component';
+
+import {environment} from '../../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { AuthGuard} from '../core/auth.guard';
+
+
+const routes: Routes = [
+  { path: 'login', component: AuthentificationComponent },
+  { path: 'register', component: RegistrationComponent}
+]
+
+
+@NgModule({
+  declarations: [AuthentificationComponent, AuthFormComponent, AuthRememberComponent, RegistrationComponent],
+  imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild(routes)
+  ],
+  providers: [ AuthGuard]
+})
+export class AuthentificationModule { }
