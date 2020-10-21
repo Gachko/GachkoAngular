@@ -25,6 +25,9 @@
                 <span class="info-cost">{{ good.cost | currencyBYN }}</span>
                 <br>
                 <a class="info-btn" (click)="add(good)">В КОРЗИНУ</a>
+
+                
+
                 <ul class="info-song">
                     <li *ngFor="let song of good.songs" class="info-song_item">
                         {{song}}
@@ -36,4 +39,5 @@
         </div>
     </div>
 </div>
+<div class="notice">Товар добавлен в корзину</div>
 </div>

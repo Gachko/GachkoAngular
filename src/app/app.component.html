@@ -1,42 +1,24 @@
 <header #header>
-  <div class="container">
-      <div class="header-inner">
-          <div class="header-logo"><a routerLink="/"><img class="img" src="../assets/logo.png" alt="VIN" /></a></div>
-          
-              <nav #menu>
-                 
-                  <a *ngFor="let item of nav" 
-                      [routerLink]="item.link"
-                      routerLinkActive="active"
-                      [routerLinkActiveOptions]="{ exact: item.exact }">
-                  {{item.name}}  
-                  <span>{{ item.quantity || null }}</span>
-                  </a>
-                  
-                  <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="isUser()">{{enter}}</a>
-                  
-
-                
-              </nav>
-
-             
-              
-
-
-              <button (click)="openMenu()" class="nav-toogle" id="nav_toggle" type="button" #navtoggle>
-                  <span class="nav-toogle_item" >menu</span>
-              </button>   
-      
-          </div>
-
-
-     </div>       
+    <div class="container">
+        <div class="header-inner">
+            <div class="header-logo">
+                <a routerLink="/"><img class="img" src="../assets/logo.png" alt="VIN"></a>
+            </div>
+            <nav #menu>
+                <a *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: item.exact }">
+                    {{item.name}}
+                    <span>{{ item.quantity || null }}</span>
+                </a>
+                <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                    (click)="isUser()">{{enter}}</a>
+            </nav>
+            <button (click)="openMenu()" class="nav-toogle" id="nav_toggle" type="button" #navtoggle>
+                <span class="nav-toogle_item">menu</span>
+            </button>
+        </div>
+    </div>
 </header>
 
-
-    <app-preloader *ngIf="loading"></app-preloader>
-
-
+<flash-messages></flash-messages>
 <router-outlet></router-outlet>
-
-

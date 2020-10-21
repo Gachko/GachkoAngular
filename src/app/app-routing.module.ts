@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/component/not-found.component';
 import { MainPageModule } from './main-page/main-page.module';
-import { ShopModule} from './shop/shop.module'
+import { ShopModule} from './shop/shop.module';
 import { AuthentificationModule } from './authentification/authentification.module';
-import { Preloader } from './preloader.resolve'
+
+import { AuthentificationComponent } from './authentification/container/authentification/authentification.component'
+import { RegistrationComponent} from './authentification/container/registration/registration.component'
+
+
 const routes: Routes = [
   
   { path: '', redirectTo: '/', pathMatch: 'full'},
@@ -12,13 +16,15 @@ const routes: Routes = [
   { path: 'contacts',pathMatch: 'full',  loadChildren: './contacts/contacts.module#ContactsModule' },
   { path: 'shop', redirectTo: '/shop' },
   { path: 'register', redirectTo: '/register' },
+
   { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), ShopModule , MainPageModule, AuthentificationModule],
+  //imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [Preloader]
+  providers: []
 })
 export class AppRoutingModule { 
 

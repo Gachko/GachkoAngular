@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../../core/service/auth.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
@@ -18,7 +19,7 @@ export class AuthentificationComponent implements OnInit {
     message:""
   }; //for firebase error handle
 
-  constructor(private authservice: AuthService, private router: Router) { }
+  constructor(private authservice: AuthService, private router: Router, private flashMessages: FlashMessagesService) { }
 
   ngOnInit(): void {
   }
@@ -35,10 +36,14 @@ export class AuthentificationComponent implements OnInit {
     {
       this.authservice.loginWithEmail(user.email, user.password)
       .then(() => {
-      
+        this.flashMessages.show('Вы вошли в систему. Приятных покупок!', {
+          cssClass: 'alert-success',
+          timeout: 1000
+        });
        this.router.navigate(['shop'])
-      }).catch(_error => {
-        this.error = _error
+      })
+      .catch(_error => {
+        this.error = _error;
         this.router.navigate(['login'])
       })
     }

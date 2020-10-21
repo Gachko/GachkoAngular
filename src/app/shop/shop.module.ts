@@ -55,6 +55,6 @@ export const routes: Routes = [
     RouterModule.forChild(routes)
   ],
  // exports: [PreloaderComponent],
-  providers: []
+  providers: [ AuthGuard ]
 })
 export class ShopModule { }

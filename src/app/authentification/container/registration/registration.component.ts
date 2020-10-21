@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../../core/service/auth.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -19,7 +20,7 @@ export class RegistrationComponent implements OnInit {
   }; //for firebase error handle
 
 
-  constructor(private authservice: AuthService, private router: Router) { }
+  constructor(private authservice: AuthService, private router: Router, private flashMessages: FlashMessagesService) { }
 
   ngOnInit(): void {
   }
@@ -37,6 +38,10 @@ export class RegistrationComponent implements OnInit {
     {
       this.authservice.registerWithEmail(user.email,user.password)
       .then(() => {
+        this.flashMessages.show('Вы успешно зарегестрированы и вошли в систему.Приятных покупок!', {
+          cssClass: 'alert-success',
+          timeout: 1700
+        });
         this.message = "you are register";
        this.router.navigate(['shop'])
       }).catch(_error => {

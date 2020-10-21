@@ -11,13 +11,13 @@ import {environment} from '../../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+ import { LoginGuard} from './guards/login.guard'
 
-import { AuthGuard} from '../core/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'login', component: AuthentificationComponent },
-  { path: 'register', component: RegistrationComponent}
+  { path: 'login', component: AuthentificationComponent, canActivate:[ LoginGuard ]},
+  { path: 'register', component: RegistrationComponent, canActivate:[ LoginGuard ]}
 ]
 
 
@@ -29,8 +29,9 @@ const routes: Routes = [
     AngularFirestoreModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+
   ],
-  providers: [ AuthGuard]
+  providers: [LoginGuard]
 })
 export class AuthentificationModule { }

@@ -1,22 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-auth-form',
   templateUrl: './auth-form.component.html',
   styleUrls: ['./auth-form.component.scss']
 })
-export class AuthFormComponent implements OnInit {
+export class AuthFormComponent implements OnInit  {
 
+  ngOnInit(){}
   @Input() email;
-
   @Input() password;
-
   @Output() logIn: EventEmitter<any> =new EventEmitter<any>();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   login(value) {
     this.logIn.emit(value);

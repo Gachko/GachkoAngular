@@ -85,3 +85,51 @@ h1,h2,h3,h4,h5 {
   background: url('./assets/registration.jpg') no-repeat center fixed;
   background-size: cover; 
 }
+
+.alert-success {
+
+  position: absolute;
+  color: #13131385;
+  background-color: #b7ffd3cb;
+  display:  inline-block;
+  padding: 10px 60px;
+  border: 1px solid  #13131385;
+  
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 4px;
+  
+  margin-left: 35%;
+
+
+  
+  
+
+}
+
+
+.alert-danger {
+
+  position: absolute;
+  color: #13131385;
+  background-color: #ffb7b7cb;
+  display:  inline-block;
+  padding: 10px 60px;
+  border: 1px solid  #13131385;
+  
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 4px;
+  
+  margin-left: 35%;
+
+
+  
+  
+
+}
+
+.margin {
+  position: relative;
+  margin-top: 100px;
+}

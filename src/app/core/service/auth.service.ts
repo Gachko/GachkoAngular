@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AngularFireAuth} from '@angular/fire/auth';
-import {Router} from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +10,16 @@ export class AuthService {
 
   authState: any = null;
 
- 
-
+  check: boolean ;
+  
   constructor(private afu: AngularFireAuth, private router: Router) {
     this.afu.authState.subscribe((auth => {
       this.authState = auth;
+      this.check = (this.authState)? true: false;
     }))
-   }
-// all firebase getdata functions
-   get isUserAnonymousLoggedIn(): boolean {
+  }
+
+  get isUserAnonymousLoggedIn(): boolean {
     return (this.authState !== null) ? this.authState.isAnonymous : false
   }
 
@@ -42,10 +43,12 @@ export class AuthService {
     }
   }
 
-   registerWithEmail(email: string, password: string) {
+  registerWithEmail(email: string, password: string) {
     return this.afu.createUserWithEmailAndPassword(email, password)
       .then((user) => {
         this.authState = user
+
+        this.check = true
       })
       .catch(error => {
         console.log(error)
@@ -53,23 +56,26 @@ export class AuthService {
       });
   }
 
-  isLoggeIn()
- {
-    return of(this.currentUserName? true: false)
- }
-  loginWithEmail(email: string, password: string) {
-    return this.afu.signInWithEmailAndPassword(email, password)
-    .then((user) => {
-      this.authState = user
-    })
-    .catch(error => {
-      console.log(error)
-      throw error
-    });
+  isLoggeIn() {
+    return of(this.currentUserName ? true : false)
   }
 
-  signout(): void{
+  loginWithEmail(email: string, password: string) {
+    return this.afu.signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user
+
+        this.check = true
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
+      });
+  }
+
+  signout(): void {
     this.afu.signOut();
+    this.check = false
     this.router.navigate(['/login'])
   }
 

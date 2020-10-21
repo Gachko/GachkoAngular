@@ -1,8 +1,9 @@
 import { isPlatformServer } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute, Params,  ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap, pluck  } from 'rxjs/operators';
+import { AuthService } from 'src/app/core/service/auth.service';
 import { MainGoodsService } from '../../../core/main-goods.service';
 import { IGoods } from '../../../core/models/goods.interface';
 import { Store } from '../../../core/store';
@@ -12,15 +13,21 @@ import { Store } from '../../../core/store';
   templateUrl: './item-viewer.component.html',
   styleUrls: ['./item-viewer.component.scss']
 })
-export class ItemViewerComponent implements OnInit, OnDestroy {
+export class ItemViewerComponent implements OnInit, OnDestroy, AfterViewInit {
 
   good: Observable<IGoods>;
+
+  @ViewChild('add', {static: false}) addInfo: ElementRef;
+
+  notice;
 
   constructor(
     private store: Store,
     private route: ActivatedRoute,
   private router: Router,
-  private service: MainGoodsService
+  private service: MainGoodsService,
+  private elementRef:ElementRef,
+  private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -30,22 +37,40 @@ export class ItemViewerComponent implements OnInit, OnDestroy {
     );
 }
 
+
+ngAfterViewInit() {
+  this.notice = this.elementRef.nativeElement.querySelector('.notice');
+}
+
 add(event) {
   console.log(event);
   const value = this.store.value.goods;
-   
-  value.forEach(item => {
-    if (item.id == event.id && this.service.basket.indexOf(item) == -1) {
-      this.service.basket.push(item);
-     
-      
-    }
-  }
-  );
 
-  console.log(this.service.basket)
+  if (this.authService.check) {
+    value.forEach(item => {
+      if (item.id == event.id && this.service.basket.indexOf(item) == -1) {
+        this.service.basket.push(item);        
+      }
+    }
+    );
+    this.notice.style.display  = "block";
+    setTimeout(() => {
+      this.notice.style.display  = "";
+    }, 800
+    );
+    console.log(this.service.basket)
+   
+    localStorage.setItem('basket', JSON.stringify(this.service.basket));
+  }
+
+  
+   else{
+    this.router.navigate(['/login'])
+    
+   }
+   
+  
  
-  localStorage.setItem('basket', JSON.stringify(this.service.basket));
 }
 
 
