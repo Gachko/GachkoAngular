@@ -1,9 +1,5 @@
-import { Injectable } from '@angular/core';
-import { IPhoto } from '../models/photo.interface';
+import { IPhoto } from '../../models/photo.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class PhotoBlogService {
 
   photos: IPhoto[] = [

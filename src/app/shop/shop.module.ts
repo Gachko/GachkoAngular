@@ -8,20 +8,12 @@ import { ShopComponent } from './container/shop/shop.component';
 import { ItemViewerComponent } from './container/item-viewer/item-viewer.component';
 import { WishListComponent } from './container/wish-list/wish-list.component';
 import { GoodsItemComponent } from './components/goods-item/goods-item.component';
-
 import { FilterComponent } from './components/filter/filter.component';
-
 import { TooltipDirective } from './tooltip/tooltip.directive';
 import { CostPipe } from './pipes/cost.pipe';
-
 import { BasketComponent } from './container/basket/basket.component';
-
-import {AuthGuard} from '../core/auth.guard';
+import {AuthGuard} from './guards/auth.guard';
 import { ItemBasketComponent } from './components/item-basket/item-basket.component';
-import { BasketCounterComponent } from './components/basket-counter/basket-counter.component';
-
-
-//import { PreloaderComponent } from '../preloader/preloader.component';
 
 export const routes: Routes = [
 
@@ -30,10 +22,7 @@ export const routes: Routes = [
   { path: 'wishList', component: WishListComponent },
   { path: 'basket', component: BasketComponent, canActivate:[AuthGuard]}
 
- // { path: 'basket', component: BasketComponent, canActivate:[AuthGuard]}
-
 ];
-
 
 @NgModule({
   declarations: [
@@ -45,16 +34,13 @@ export const routes: Routes = [
     TooltipDirective,
     FilterComponent,
     BasketComponent,
-    ItemBasketComponent,
-    BasketCounterComponent,
-   // PreloaderComponent
+    ItemBasketComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes)
   ],
- // exports: [PreloaderComponent],
   providers: [ AuthGuard ]
 })
 export class ShopModule { }

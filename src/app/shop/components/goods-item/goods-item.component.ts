@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component,Input, Output, EventEmitter } from '@angular/core';
 
 import { IGoods } from '../../../core/models/goods.interface';
 
@@ -7,25 +7,16 @@ import { IGoods } from '../../../core/models/goods.interface';
   templateUrl: './goods-item.component.html',
   styleUrls: ['./goods-item.component.scss']
 })
-export class GoodsItemComponent implements OnInit {
+export class GoodsItemComponent {
 
-  id = 3;
 
   @Input('items')
-  items;
-
-
+  items: IGoods;
 
   @Output()
   addToWishList: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  add(index) {
-    
+  add(index) {  
    const item = this.items[index];
    this.addToWishList.emit(item)
   }

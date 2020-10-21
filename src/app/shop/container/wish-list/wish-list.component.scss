@@ -1,15 +1,15 @@
-.list{
+.list {
     display: flex;
     justify-content: left;
     margin-top: 130px;
     flex-wrap: wrap;
 }
 
-ul{
+ul {
     padding: 0;
 }
 
-.container-inner{
+.container-inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,16 +19,16 @@ ul{
 
 .message {
     text-align: center;
-    h3{
+    h3 {
         font-size: 50px;
     }
 
-    p{
+    p {
         font-size: 20px;
 
     }
 
-    a{
+    a {
         display: inline-block;
         border: 2px solid #fff;
         background-color:#131313;

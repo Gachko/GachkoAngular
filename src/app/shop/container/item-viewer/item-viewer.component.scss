@@ -19,7 +19,7 @@
     background-size: cover;
     overflow: hidden;
 
-    img{
+    img {
         width: 100%;
         height: 100%;
     }
@@ -27,13 +27,11 @@
 
 }
 
-
-
 .info-name {
     font-size: 33px;
 }
 
-.info-author{
+.info-author {
     font-size: 30px;
 }
 
@@ -63,18 +61,16 @@
 
 
 }
-
-
 .info-song {
     list-style: none;
     padding: 0;
 }
 
-.home{
+.home {
     margin-bottom: 20px;
 }
 
-a{
+a {
     margin-bottom: 20px;
     text-decoration: none;
     color: #131313;
@@ -85,10 +81,7 @@ a{
     }
    
 }
-
-
-
-.notice{
+.notice {
     display: none;
     position: absolute;
     padding: 30px 50px;

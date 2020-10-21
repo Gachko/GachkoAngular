@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { MainGoodsService } from '../main-goods.service';
+import { MainGoodsService } from '../mainGoods-service/main-goods.service';
 
 @Injectable({
   providedIn: 'root'

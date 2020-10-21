@@ -1,17 +1,11 @@
-
-<div class="item-view">
-  
-       
-    
-   
+<div class="item-view"> 
+     
 <div *ngIf="good | async as good ">
     <div class="home">
         <a  [routerLink] ="['/shop']">BACK TO SHOP</a>
     </div>
-    <div class="container ">
-        
-        <div class="description">
-            
+    <div class="container ">       
+        <div class="description">           
             <div class="picture">
                 <img src="{{good.pathToImg}}">
             </div>
@@ -24,9 +18,7 @@
                 <br>
                 <span class="info-cost">{{ good.cost | currencyBYN }}</span>
                 <br>
-                <a class="info-btn" (click)="add(good)">В КОРЗИНУ</a>
-
-                
+                <a class="info-btn" (click)="add(good)">В КОРЗИНУ</a>              
 
                 <ul class="info-song">
                     <li *ngFor="let song of good.songs" class="info-song_item">
@@ -34,10 +26,9 @@
                     </li>
                 </ul>
             </div>
-
-
         </div>
     </div>
 </div>
+
 <div class="notice">Товар добавлен в корзину</div>
 </div>

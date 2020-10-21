@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {AuthService } from '../../core/service/auth.service'
+import {AuthService } from '../../core/service/auth-service/auth.service'
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable()
@@ -26,6 +26,5 @@ export class LoginGuard implements CanActivate {
       })
     );
   }
-
 }
 

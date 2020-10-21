@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService} from '../../../core/service/auth.service';
+import { AuthService} from '../../../core/service/auth-service/auth.service';
 import {Router} from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 @Component({
@@ -13,11 +13,11 @@ export class AuthentificationComponent implements OnInit {
   password="";
   message = ""
 
-  errorMessage = ''; //validation error handle
+  errorMessage = ''; 
   error: { name: string, message: string} = {
     name: "",
     message:""
-  }; //for firebase error handle
+  }; 
 
   constructor(private authservice: AuthService, private router: Router, private flashMessages: FlashMessagesService) { }
 

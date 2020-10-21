@@ -18,7 +18,7 @@ $color: #fff;
     text-align: center;
     margin-top: 130px;
 
-    h1{
+    h1 {
         margin-bottom: 1rem;
         font-size: 7.3em;
         font-weight: bold;
@@ -27,7 +27,7 @@ $color: #fff;
         line-height: 1;
         color: $color;
 
-        &:after{
+        &:after {
             content: "";
             display: block;
             height: 1px;
@@ -37,7 +37,7 @@ $color: #fff;
         }
     }
 
-    h2{
+    h2 {
         color: $color;
         font-size: 2em;
         text-align: center;
@@ -58,7 +58,7 @@ $color: #fff;
     padding: 20px 75px;
     transition: background .3s linear;
 
-    &:hover{
+    &:hover {
         cursor: pointer;
         color: $color;
         background-color: #131313;
@@ -71,11 +71,11 @@ $color: #fff;
 
 
  @media(max-width:940px) {
-     .intro-inner{
-        h1{
+     .intro-inner {
+        h1 {
             font-size: 5.3em;
         }
-        h2{
+        h2 {
             font-size: 2em;
         }
      }
@@ -83,11 +83,11 @@ $color: #fff;
  }
 
  @media(max-width:490px) {
-    .intro-inner{
-       h1{
+    .intro-inner {
+       h1 {
            font-size: 3.3em;
        }
-       h2{
+       h2 {
            font-size: 1.5em;
        }
     }
@@ -95,15 +95,15 @@ $color: #fff;
 }
 
 @media(max-width:317px) {
-    .intro-inner{
-       h1{
+    .intro-inner {
+       h1 {
            font-size: 2.3em;
            
-           &:after{
+           &:after {
             width: 160px;
         }
        }
-       h2{
+       h2 {
            font-size: 1em;
        }
     }

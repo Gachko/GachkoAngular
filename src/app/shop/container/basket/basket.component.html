@@ -1,35 +1,23 @@
 <div class="container relative">
-
- 
     <div class="info">
         <h3>Ваш логин: {{username}}</h3>        
-    </div>
-
-    
+    </div> 
     <div *ngIf="items.length > 0; else msg" class="container">
-     
         <ul  class="list"> 
             <app-item-basket [items]="items" (removeFromBasket) = "removeFromBasket($event)"></app-item-basket>
-       </ul>
-
-       <h3 class="sum"><span>Итого:</span>{{sum | currencyBYN}}</h3>
-       </div>
-       
-    </div>
+        </ul>
+        <h3 class="sum"><span>Итого:</span>{{sum | currencyBYN}}</h3>
+    </div>     
+</div>
 
    
-  
-
-
 <ng-template #msg>
     <div class="container container-inner">
         <div class="message">
-            <h3>
-                Корзина пуста.
-            </h3>
+            <h3>Корзина пуста.</h3>
             <p>Начать покупки.</p>
             <a [routerLink]="['/shop']">В МАГАЗИН</a>
-    </div>
+        </div>
     </div>
 </ng-template>
     

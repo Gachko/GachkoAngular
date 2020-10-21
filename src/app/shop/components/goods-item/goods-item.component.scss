@@ -2,7 +2,6 @@
     min-width: 285px;
     margin: 15px 10px 30px;
 }
-
 .card {
     position: relative;
     max-width: 300px;
@@ -18,88 +17,47 @@
     -webkit-box-shadow: 3px 3px 20px 1px rgba(200, 200, 200, .75);
     box-shadow: 3px 3px 20px 1px rgba(200, 200, 200, .75);
 }
-
-// .card__head {
-//     padding: 15px 15px 0;
-//     max-height: 80px;
-//     display: -webkit-box;
-//     -webkit-line-clamp: 3;
-//     -webkit-box-orient: vertical;
-//     overflow: hidden;
-//     -o-text-overflow: ellipsis;
-//     text-overflow: ellipsis;
-//     font-weight: 900;
-// }
-
-
-// .card__vote {
-//     position: absolute;
-//     top: 18px;
-//     left: 1px;
-//     text-align: center;
-//     color: #FFFFFF;
-//     background-color: #FF637D;
-//     height: 25px;
-//     width: 44px;
-//     display: inline-block;
-//     line-height: 25px;
-//     font-weight: 900;
-// }
-
 .card__img {
     height: 278px;
     width: 300px;
-
     transition: opacity .2s linear;
-
 }
-
 .list{
     display: flex;
     justify-content: space-around;
     margin-top: 130px;
     flex-wrap: wrap;
 }
-
 ul{
     padding: 0;
 }
-
 .item-like{
     position: absolute;
     top: 18px;
     left: 1px;
     text-align: center;
-    //background-color: #FF637D;
     height: 25px;
     width: 44px;
     display: inline-block;
     line-height: 25px;
     font-weight: 900;
-
     z-index: 1000;
-   opacity: 0;
-
+    opacity: 0;
     transition: opacity .2s linear;
 
     &.active{
         background: rgb(179, 0, 0);
      }
-
-
 }
 li{
     list-style: none;
 }
-
 .discription {
     margin-left: 30px;
     min-height: 185px;
    
 }
-
-
-.item_discription-author-name{
+.item_discription-author-name {
     font-weight: bold;
     font-size: 20px; 
     transform: all .2s linear;
@@ -107,13 +65,10 @@ li{
      border-bottom: 1px solid black;
     }
 }
-
-.item_discription-year{
+.item_discription-year {
     font-size: 13px;
 }
-
-.like{
-    
+.like {  
     position: relative;
     width: 20px;
     height: 35px;
@@ -132,7 +87,7 @@ li{
         transform-origin: 0 100%;
         }
     
-       &:after {
+        &:after {
         left: 0;
         transform: rotate(45deg); 
         transform-origin: 100% 100%;
@@ -164,33 +119,19 @@ li{
    &:hover {
     cursor: pointer;
    }
-   
-      
- 
-
 
 }
 
 .like.active{
-        
-    background: blue;
-
-     
-      
-      }
-  
-
-
-
-
+        background: blue;  
+}
 
 a {
     text-decoration: none;
     color: #131313;
-
 }
 
-.pic   {
+.pic {
     background: linear-gradient(to bottom, #5f5f5f, #FFFFFF);
     transition: transform .2s linear;
 }

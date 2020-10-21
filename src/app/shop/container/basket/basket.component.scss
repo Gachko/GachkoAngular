@@ -1,4 +1,4 @@
-.info{
+.info {
     margin-top: 200px;
     margin-bottom: 40px;
 }
@@ -12,14 +12,14 @@
     right: 110px;
     font-weight: normal;
     
-    span{
+    span {
     font-weight: bolder;
     margin-right: 30px;
     }
 }
 
 
-.container-inner{
+.container-inner {
     display: flex;
     flex-direction: column;
     
@@ -29,16 +29,15 @@
 
 .message {
     text-align: center;
-    h3{
+    h3 {
         font-size: 50px;
     }
 
-    p{
+    p {
         font-size: 20px;
-
     }
 
-    a{
+    a {
         display: inline-block;
         border: 2px solid #fff;
         background-color:#131313;
@@ -48,16 +47,13 @@
         font-size: 15px;
         padding: 20px 80px;
         transition: all .3s linear;
-    
-     
-    
 
-    &:hover {
-        background-color: #fff;
-        border: 2px solid #131313;
-        color: #131313;
-        cursor: pointer;
-    }
+        &:hover {
+            background-color: #fff;
+            border: 2px solid #131313;
+            color: #131313;
+            cursor: pointer;
+        }
         
     }
 }

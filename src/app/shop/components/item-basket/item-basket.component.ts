@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IGoods } from '../../../core/models/goods.interface';
 
 @Component({
@@ -6,18 +6,11 @@ import { IGoods } from '../../../core/models/goods.interface';
   templateUrl: './item-basket.component.html',
   styleUrls: ['./item-basket.component.scss']
 })
-export class ItemBasketComponent implements OnInit {
+export class ItemBasketComponent  {
 
-  @Output() removeFromBasket = new EventEmitter();
+  @Output() removeFromBasket = new EventEmitter();  
+  @Input() items: IGoods;
   
-  @Input() items;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
   remove(good) {
     this.removeFromBasket.emit(good);
   }

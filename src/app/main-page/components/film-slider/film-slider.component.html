@@ -1,26 +1,22 @@
-
-    <div class="films">
-        <div class="container">
-    <div class="slider">
-        
-        <div>
-            <a (click)="previous()" class="arrow left"></a>
-        </div>
-        <div class="item">
-            <div class="img">
-                <img src = "{{currentFilm.img}}" alt="">
+<div class="films">
+    <div class="container">
+        <div class="slider">     
+            <div>
+                <a (click)="previous()" class="arrow left"></a>
             </div>
-            
-            <div class="text">
-                <a  href="{{ currentFilm.path }}" target="_blank">{{ currentFilm.name}}</a>
-                <h3>{{ currentFilm.year }}</h3>
-                <p>{{ currentFilm. description }}</p>
+            <div class="item">
+                <div class="img">
+                    <img src = "{{currentFilm.img}}" alt="">
+                </div>      
+                <div class="text">
+                    <a  href="{{ currentFilm.path }}" target="_blank">{{ currentFilm.name}}</a>
+                    <h3>{{ currentFilm.year }}</h3>
+                    <p>{{ currentFilm. description }}</p>
+                </div>
             </div>
+            <div>
+                <a (click)="next()"  class="arrow right"></a>
+            </div>     
         </div>
-        <div>
-            <a (click)="next()"  class="arrow right"></a>
-        </div>
-        
     </div>
-</div>
 </div>

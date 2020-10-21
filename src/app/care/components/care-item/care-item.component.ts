@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CareItemComponent implements OnInit {
 
-  itemNumber =1 ;
-  itemTitle = 'ff';
-  itemText = 'ggg';
-  itemPhoto = '../';
+  itemNumber: number ;
+  itemTitle: string;
+  itemText: string;
+  itemPhoto: string;
 
   constructor() { }
 

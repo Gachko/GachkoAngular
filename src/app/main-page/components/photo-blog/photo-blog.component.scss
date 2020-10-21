@@ -1,11 +1,11 @@
-.photos{
+.photos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
        
    }
-   .item{
+   .item {
    
        position: relative;
        width: 33%;
@@ -37,11 +37,11 @@
        transition: opacity .2s linear;
    }
    
-   .item:hover .item-photo{
+   .item:hover .item-photo {
        opacity: .4;
    }
    
-   .item:hover .item-text{
+   .item:hover .item-text {
        opacity: 1;
    }
    

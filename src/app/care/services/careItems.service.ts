@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-
-import { ICareItem } from '../models/careItem.interface'
+import { ICareItem } from '../models/careItem.interface';
 
 @Injectable({
   providedIn: 'root'

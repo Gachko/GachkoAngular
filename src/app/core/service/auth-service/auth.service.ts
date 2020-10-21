@@ -15,20 +15,20 @@ export class AuthService {
   constructor(private afu: AngularFireAuth, private router: Router) {
     this.afu.authState.subscribe((auth => {
       this.authState = auth;
-      this.check = (this.authState)? true: false;
+      this.check = (this.authState)? true : false;
     }))
   }
 
   get isUserAnonymousLoggedIn(): boolean {
-    return (this.authState !== null) ? this.authState.isAnonymous : false
+    return (this.authState !== null) ? this.authState.isAnonymous : false;
   }
 
   get currentUserId(): string {
-    return (this.authState !== null) ? this.authState.uid : ''
+    return (this.authState !== null) ? this.authState.id : ''
   }
 
   get currentUserName(): string {
-    return this.authState['email']
+    return this.authState['email'];
   }
 
   get currentUser(): any {

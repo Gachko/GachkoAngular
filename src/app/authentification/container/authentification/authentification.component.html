@@ -1,5 +1,4 @@
 <div class="form-auth">
-
     <div class="container center">
         <div class="auth-form">
             <div>
@@ -10,12 +9,8 @@
                         Войти
                     </button>
                 </app-auth-form>
-
-
-
-                
-
             </div>
+
             <p *ngIf="errorMessage.length > 0" class="text-danger">
                 {{errorMessage}}
             </p>
@@ -27,11 +22,10 @@
             <p *ngIf="message.length > 0" class="text-info">
                 {{message}}
             </p>
+
             <div><a href="#" routerLink="/register">Зарегистрироваться</a></div>
-
-
+            
         </div>
-
     </div>
 </div>
 

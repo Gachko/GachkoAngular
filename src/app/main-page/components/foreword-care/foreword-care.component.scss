@@ -1,22 +1,22 @@
-.flex{
+.flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;    
 }
 
-.care{
+.care {
     margin-top: 138px;
     position: relative;
     width: 530px;
 }
 
-.care-title{
+.care-title {
     font-weight: bold;
     font-size: 40px;
 
 }
 
-.care-text{
+.care-text {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.4em;
@@ -30,33 +30,33 @@
     z-index: -1;
 }
 
-.letter{
+.letter {
     font-weight: bold;
     color: #a3a3a3;
     font-size: 70px;
     opacity: 0.2;
 }
 
-.block{
+.block {
     position: relative;
     max-width: 400px;
  
 }
 
-.block-img{
+.block-img {
     display: block;
     max-width:100%; 
     height:auto;   
 }
 
-.btn{
+.btn {
     margin: 0 auto;
     display: block;
     text-align: center;
     margin-top: 50px;
 }
 
-.btn-black{
+.btn-black {
     background-color: #131313;
     color: white;
     font-size: 1.4em;

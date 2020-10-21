@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-
-
-
 import { MainPageComponent } from './container/main-page.component'
 import { IntroComponent } from './components/intro/intro.component';
 import { PhotoBlogComponent } from './components/photo-blog/photo-blog.component';
@@ -30,7 +27,6 @@ const routes: Routes = [
     
    
   ],
-  providers: [],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)

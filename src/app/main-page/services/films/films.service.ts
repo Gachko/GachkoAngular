@@ -1,9 +1,6 @@
-import { Injectable } from '@angular/core';
 import { IFilm } from '../../models/films.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class FilmsService {
 
   films: IFilm[] = [

@@ -22,7 +22,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), ShopModule , MainPageModule, AuthentificationModule],
-  //imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: []
 })

@@ -17,7 +17,7 @@ export class CareBlogComponent implements OnInit {
   @ViewChild('item', { read: ViewContainerRef, static: true }) item: ViewContainerRef;
 
   constructor(private resolver: ComponentFactoryResolver,
-    private careService: CareItemsService) { }
+              private careService: CareItemsService) { }
 
   ngOnInit(): void {
     this.items = this.careService.getItems();

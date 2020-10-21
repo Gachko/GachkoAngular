@@ -1,4 +1,4 @@
-.contacts{    
+.contacts {    
     width: 100%;
     height: 970px;
     background: url('../../../../assets/contacts.jpg') no-repeat center fixed;
@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.contacts-card{
+.contacts-card {
     background-color: rgb(243, 243, 243);
     text-align: center;
     padding: 60px 100px;
@@ -41,7 +41,7 @@
 
 @media(max-width: 300px) {
 
-    .contacts-card{
+    .contacts-card {
 
         h2 {
             font-size: 1.4em;

@@ -1,6 +1,7 @@
 .films {
     background-color: #131313;
 }
+
 .slider {
     display: flex;
     justify-content: space-between;
@@ -15,23 +16,18 @@
     align-items: center;
     justify-content: space-between;
 
-    
-
-    .img{
-        img{
+    .img {
+        img {
            
             border-radius: 50%;
             width: 150px;
             height: 150px;
             margin-right: 60px;
         }
-            
     }
-
     .text {
         padding: 0 10px;
         max-width: 600px;
-
         a {
             color: rgb(226, 226, 226);
             text-decoration: none;
@@ -40,14 +36,12 @@
 
             &:hover {
                 border-bottom: 1px solid rgb(226, 226, 226);
-            }
-   
+            } 
         }
 
         h3 {
-            font-weight: lighter;
+          font-weight: lighter;
         }
-
         p {
             font-size: 1em;
         }

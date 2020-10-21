@@ -1,27 +1,8 @@
- <!-- <div *ngIf="wishList.length; else message" class="container">
-     
-     <ul  class="list"> 
-      
-        <div *ngFor="let item of wishList">
-            <app-goods-item  [item]="item" (addToWishList)="removeToWishList($event)"></app-goods-item>
-        </div>
+<div *ngIf="wishList.length; else message" class="container">  
+    <ul  class="list"> 
+        <app-goods-item  [items]="wishList" (addToWishList)="removeToWishList($event)" ></app-goods-item>        
     </ul>
-    </div> -->
-
-
-    <div *ngIf="wishList.length; else message" class="container">
-     
-        <ul  class="list"> 
-            <app-goods-item  [items]="wishList" (addToWishList)="removeToWishList($event)" ></app-goods-item>
-           <!-- <div *ngFor="let item of  (goods)">
-               <app-goods-item  [item]="item" (addToWishList)="removeToWishList($event)"></app-goods-item>
-           </div> -->
-       </ul>
-       </div>
-
-   
-  
-
+</div>
 
 <ng-template #message>
     <div class="container container-inner">
@@ -31,6 +12,6 @@
             </h3>
             <p>У вас пока нет товаров в списке пожеланий.</p>
             <a [routerLink]="['/shop']">В МАГАЗИН</a>
-    </div>
+        </div>
     </div>
 </ng-template>

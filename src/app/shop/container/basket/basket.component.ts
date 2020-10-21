@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService} from '../../../core/service/auth.service';
-import { MainGoodsService } from '../../../core/main-goods.service';
+import { AuthService} from '../../../core/service/auth-service/auth.service';
+import { MainGoodsService } from '../../../core/service/mainGoods-service/main-goods.service';
 import { IGoods } from '../../../core/models/goods.interface';
 
 @Component({
@@ -12,12 +12,11 @@ export class BasketComponent implements OnInit {
 
 
   sum: number;
-
   username = this.authService.currentUserName;
-
   items: IGoods[];
 
-  constructor(private authService: AuthService, private mainGoodService: MainGoodsService ) { }
+  constructor(private authService: AuthService, 
+              private mainGoodService: MainGoodsService ) {}
 
   ngOnInit(): void {
     this.items = ("basket" in localStorage)?JSON.parse(localStorage.getItem('basket')): [];
@@ -30,20 +29,13 @@ export class BasketComponent implements OnInit {
   removeFromBasket(event) {
     console.log(event);
     this.items.forEach ( item => {
-      if( item.id == event.id ) {
-        
-        this.mainGoodService.basket.splice( this.items.indexOf(item),1);
-     
+      if( item.id == event.id ) {   
+        this.mainGoodService.basket.splice( this.items.indexOf(item),1);    
       }
     });
-
-    this.items = this.items.filter(( item: IGoods) => {
-     
+    this.items = this.items.filter(( item: IGoods) => {   
       return item.id !== event.id
-    })
-   
-   localStorage.setItem( 'basket', JSON.stringify ( this.mainGoodService.basket));
- 
+    })  
+   localStorage.setItem( 'basket', JSON.stringify ( this.mainGoodService.basket)); 
   }
-
 }
