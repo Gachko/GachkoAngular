@@ -5,10 +5,6 @@ import { MainPageModule } from './main-page/main-page.module';
 import { ShopModule} from './shop/shop.module';
 import { AuthentificationModule } from './authentification/authentification.module';
 
-import { AuthentificationComponent } from './authentification/container/authentification/authentification.component'
-import { RegistrationComponent} from './authentification/container/registration/registration.component'
-
-
 const routes: Routes = [
   
   { path: '', redirectTo: '/', pathMatch: 'full'},

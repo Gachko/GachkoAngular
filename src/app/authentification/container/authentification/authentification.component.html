@@ -2,7 +2,7 @@
     <div class="container center">
         <div class="auth-form">
             <div>
-                <app-auth-form [email]="email" [password]="password" (logIn)="login($event)">
+                <app-auth-form [email]="email" [password]="password" (submit)="submit($event)">
                     <h3 class="title">Вход</h3>
 
                     <button type="submit">
@@ -28,8 +28,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 

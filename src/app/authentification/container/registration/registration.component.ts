@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../services/auth-service/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -20,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   }; 
 
 
-  constructor(private authservice: AuthService, private router: Router, private flashMessages: FlashMessagesService) { }
+  constructor(private afs: AngularFirestore,private authservice: AuthService, private router: Router, private flashMessages: FlashMessagesService) { }
 
   ngOnInit(): void {
   }
@@ -31,12 +32,18 @@ export class RegistrationComponent implements OnInit {
   }
 
 
-  register(user) 
+  submit(user): void 
   {
     this.clearErrorMessage()
     if(this.validateForm(user.email, user.password))
     {
       this.authservice.registerWithEmail(user.email,user.password)
+      .then((res) => {
+        console.log(res)
+       return this.afs.collection('cards').doc(res['user'].uid).set({
+         email: user.email
+       })
+      })
       .then(() => {
         this.flashMessages.show('Вы успешно зарегестрированы и вошли в систему.Приятных покупок!', {
           cssClass: 'alert-success',

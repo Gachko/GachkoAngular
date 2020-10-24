@@ -9,10 +9,11 @@ export class AuthFormComponent  {
 
   @Input() email;
   @Input() password;
-  @Output() logIn: EventEmitter<any> =new EventEmitter<any>();
+  @Output() submit: EventEmitter<any> =new EventEmitter<any>();
 
-  login(value) {
-    this.logIn.emit(value);
+  onSubmit(userData) {
+    this.submit.emit(userData)
+   // this.logIn.emit(value);
   }
 
 }

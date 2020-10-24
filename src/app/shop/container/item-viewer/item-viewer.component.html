@@ -1,6 +1,6 @@
 <div class="item-view"> 
-     
-<div *ngIf="good | async as good ">
+    <app-spinner  *ngIf="showSpinner"></app-spinner>
+<div *ngIf="good || !showSpinner">
     <div class="home">
         <a  [routerLink] ="['/shop']">BACK TO SHOP</a>
     </div>
@@ -18,7 +18,7 @@
                 <br>
                 <span class="info-cost">{{ good.cost | currencyBYN }}</span>
                 <br>
-                <a class="info-btn" (click)="add(good)">В КОРЗИНУ</a>              
+                <a class="info-btn" (click)="addToCard(good)">В КОРЗИНУ</a>              
 
                 <ul class="info-song">
                     <li *ngFor="let song of good.songs" class="info-song_item">

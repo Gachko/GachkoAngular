@@ -1,8 +1,8 @@
 import { error, ok, sendJSON } from './helpers';
-import { Goods } from '../core/models/goods.interface';
+import { Good } from '../core/models/goods.interface';
 
 import { goods } from './data/goods';
 
 export function getGoods() {
-    return ok<Goods[]>(goods);
+    return ok<Good[]>(goods);
 }

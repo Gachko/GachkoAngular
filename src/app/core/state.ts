@@ -1,5 +1,5 @@
-import { Goods } from './models/goods.interface';
+import { Good } from './models/goods.interface';
 
 export interface State {
-    goods: Goods[]
+    goods: Good[]
 }

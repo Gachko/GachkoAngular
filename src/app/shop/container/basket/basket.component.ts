@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../../authentification/services/auth-service/auth.service';
-import { MainGoodsService } from '../../../core/service/mainGoods-service/main-goods.service';
-import { Goods } from '../../../core/models/goods.interface';
+import { Good } from '../../../core/models/goods.interface';
+import { CardService } from '../../../core/service/card-service/card.service'
 
 @Component({
   selector: 'app-basket',
@@ -11,31 +11,31 @@ import { Goods } from '../../../core/models/goods.interface';
 export class BasketComponent implements OnInit {
 
 
-  sum: number;
+  totalSum: number;
   username = this.authService.currentUserName;
-  items: Goods[];
+  items: Good[];
 
-  constructor(private authService: AuthService, 
-              private mainGoodService: MainGoodsService ) {}
+  constructor(
+    private authService: AuthService, 
+    private cardService: CardService  
+) {}
 
   ngOnInit(): void {
-    this.items = ("basket" in localStorage)?JSON.parse(localStorage.getItem('basket')): [];
-  }
-
-  ngDoCheck () {
-    this.sum = this.mainGoodService.basket.reduce((sum, item) => { return item.cost + sum }, 0)
-  }
-
-  removeFromBasket(event) {
-    console.log(event);
-    this.items.forEach ( item => {
-      if( item.id == event.id ) {   
-        this.mainGoodService.basket.splice( this.items.indexOf(item),1);    
-      }
+    this.cardService.getCard().subscribe( items => {
+    this.items = items; 
+    this.getTotalSum();     
     });
-    this.items = this.items.filter(( item: Goods) => {   
-      return item.id !== event.id
-    })  
-   localStorage.setItem( 'basket', JSON.stringify ( this.mainGoodService.basket)); 
+
+  }
+
+  removeFromCard(event) {
+    console.log(event)
+    this.cardService.deleteGood(event);
+  }
+
+  getTotalSum() {
+    this.totalSum = this.items.reduce((total, good) => {
+      return total + parseFloat(good.cost.toString())
+    }, 0)
   }
 }

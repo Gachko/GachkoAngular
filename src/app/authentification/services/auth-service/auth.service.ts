@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -45,16 +46,13 @@ export class AuthService {
   }
 
   registerWithEmail(email: string, password: string) {
-    return this.afu.createUserWithEmailAndPassword(email, password)
-      .then((user) => {
-        this.authState = user
-
-        this.check = true
-      })
-      .catch(error => {
-        console.log(error)
-        throw error
-      });
+    return new Promise((resolve, reject) => {
+      this.afu.createUserWithEmailAndPassword(email, password)
+        .then(
+          userData => resolve(userData),
+          err => reject(err)
+        );
+    });
   }
 
   isLoggeIn() {
@@ -78,6 +76,12 @@ export class AuthService {
     this.afu.signOut();
     this.check = false
     this.router.navigate(['/login'])
+  }
+
+  getAuth(): Observable<any> {
+    return this.afu.authState.pipe(
+      map(auth => auth)
+    );
   }
 
 }

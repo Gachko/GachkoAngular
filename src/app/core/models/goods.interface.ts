@@ -1,5 +1,5 @@
-export interface Goods {
-    id: number,
+export interface Good {
+    id: number | string,
     name: string,
     author: string,
     cost: number,

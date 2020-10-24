@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../services/auth-service/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
@@ -19,9 +20,11 @@ export class AuthentificationComponent implements OnInit {
     message:""
   }; 
 
-  constructor(private authservice: AuthService, 
-              private router: Router, 
-              private flashMessages: FlashMessagesService) { }
+  constructor(
+    private authservice: AuthService, 
+    private router: Router, 
+    private flashMessages: FlashMessagesService) 
+    { }
 
   ngOnInit(): void {
   }
@@ -31,12 +34,12 @@ export class AuthentificationComponent implements OnInit {
     this.error = { name:'', message: ''}
   }
 
-  login(user) {
+  submit(event) {
 
     this.clearErrorMessage()
-    if(this.validateForm(user.email, user.password))
+    if(this.validateForm(event.email, event.password))
     {
-      this.authservice.loginWithEmail(user.email, user.password)
+      this.authservice.loginWithEmail(event.email, event.password)
       .then(() => {
         this.flashMessages.show('Вы вошли в систему. Приятных покупок!', {
           cssClass: 'alert-success',

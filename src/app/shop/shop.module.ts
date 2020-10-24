@@ -14,7 +14,7 @@ import { CostPipe } from './pipes/cost.pipe';
 import { BasketComponent } from './container/basket/basket.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ItemBasketComponent } from './components/item-basket/item-basket.component';
-
+import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SearchPipe } from './pipes/search.pipe'
 
 
@@ -38,6 +38,7 @@ export const routes: Routes = [
     FilterComponent,
     BasketComponent,
     ItemBasketComponent,
+    SpinnerComponent,
     SearchPipe,
     
   ],

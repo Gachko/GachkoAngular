@@ -1,5 +1,5 @@
 <div>
-    <form (ngSubmit)="login(form.value)" #form="ngForm">
+    <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
         <ng-content select=".title"></ng-content>
         <label for="">
             Email:
@@ -15,3 +15,4 @@
         <ng-content select="button"></ng-content>
     </form>
 </div>
+<!-- //(ngSubmit)="login(form.value)" -->

@@ -7,12 +7,12 @@
         </div>
         
     </app-filter>
-    <div *ngIf="!spinner" class="up" (click)="scrollTop()"></div>
+    <div *ngIf="!showSpinner" class="up" (click)="scrollTop()"></div>
     <app-goods-item  [items]="goods" (addToWishList)="addToWishList($event)"></app-goods-item>  
 
     
    
-        <div  *ngIf="spinner" class="spinner"></div>
+    <app-spinner  *ngIf="showSpinner"></app-spinner>
 
 
        
