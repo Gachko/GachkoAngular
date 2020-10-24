@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService} from '../../../core/service/auth-service/auth.service';
-import {Router} from '@angular/router';
+import { AuthService} from '../../services/auth-service/auth.service';
+import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 @Component({
   selector: 'app-authentification',
@@ -19,7 +19,9 @@ export class AuthentificationComponent implements OnInit {
     message:""
   }; 
 
-  constructor(private authservice: AuthService, private router: Router, private flashMessages: FlashMessagesService) { }
+  constructor(private authservice: AuthService, 
+              private router: Router, 
+              private flashMessages: FlashMessagesService) { }
 
   ngOnInit(): void {
   }
@@ -52,18 +54,18 @@ export class AuthentificationComponent implements OnInit {
   validateForm(email, password) {
     if(email.length === 0) 
     {
-      this.errorMessage = 'please enter id';
+      this.errorMessage = 'Введите логин';
       return false;
     }
 
     if(password.length === 0) 
     {
-      this.errorMessage = 'please enter password';
+      this.errorMessage = 'Веедите пароль';
       return false;
     }
 
     if(password.length < 6 ) {
-      this.errorMessage = 'password should be at least 6 char';
+      this.errorMessage = 'Пароль содержит мимимум 6 символов';
       return false;
     }
 

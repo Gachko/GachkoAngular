@@ -1,4 +1,4 @@
-export interface IPhoto {
+export interface Photo {
     img: string,
     text: string,
     author: string,

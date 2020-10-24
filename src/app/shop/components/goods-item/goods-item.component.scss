@@ -7,6 +7,7 @@
     max-width: 300px;
     min-height: 370px;
     margin: 0 auto;
+    margin-left: 30px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -120,10 +121,6 @@ li{
     cursor: pointer;
    }
 
-}
-
-.like.active{
-        background: blue;  
 }
 
 a {

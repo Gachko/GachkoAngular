@@ -1,10 +1,10 @@
-import { Component, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { AuthService } from 'src/app/core/service/auth-service/auth.service';
+import { AuthService } from '../../../authentification/services/auth-service/auth.service';
 import { MainGoodsService } from '../../../core/service/mainGoods-service/main-goods.service';
-import { IGoods } from '../../../core/models/goods.interface';
+import { Goods } from '../../../core/models/goods.interface';
 import { Store } from '../../../core/store';
 
 @Component({
@@ -12,10 +12,11 @@ import { Store } from '../../../core/store';
   templateUrl: './item-viewer.component.html',
   styleUrls: ['./item-viewer.component.scss']
 })
-export class ItemViewerComponent implements OnInit, AfterViewInit {
+export class ItemViewerComponent implements OnInit {
 
-  good: Observable<IGoods>;
-  notice;
+  good: Observable<Goods>;
+  
+  @ViewChild('notice', {static: false})notice: ElementRef;
 
   constructor (
     private store: Store,
@@ -34,9 +35,7 @@ export class ItemViewerComponent implements OnInit, AfterViewInit {
 }
 
 
-  ngAfterViewInit() {
-    this.notice = this.elementRef.nativeElement.querySelector('.notice');
-}
+
 
   add(event) {
     console.log(event);
@@ -50,9 +49,9 @@ export class ItemViewerComponent implements OnInit, AfterViewInit {
     }
     );
 
-    this.notice.style.display  = "block";
+    this.notice.nativeElement.style.display  = "block";
     setTimeout(() => {
-      this.notice.style.display  = "";
+      this.notice.nativeElement.style.display  = "";
     }, 800
     );  
     localStorage.setItem('basket', JSON.stringify(this.service.basket));

@@ -1,4 +1,4 @@
-export interface IGoods {
+export interface Goods {
     id: number,
     name: string,
     author: string,

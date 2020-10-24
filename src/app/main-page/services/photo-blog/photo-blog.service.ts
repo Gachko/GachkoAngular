@@ -1,8 +1,8 @@
-import { IPhoto } from '../../models/photo.interface';
+import { Photo } from '../../models/photo.interface';
 
 export class PhotoBlogService {
 
-  photos: IPhoto[] = [
+  photos: Photo[] = [
     {
       img: '../../../assets/photos/1.jpg',
       text: '"Самая странная запись в моей коллекции — это пластинка «Лучшее от Марселя Марсо», выпущенная в семидесятые одной лос-анджелесской конторой. Там было сорок минут тишины, а потом аплодисменты. Продавалась она превосходно, и, естественно, я ее себе тут же купил. Я люблю ее ставить, когда приходят гости, и меня безумно раздражает, когда кто-то начинает разговаривать во время прослушивания."',
@@ -35,7 +35,7 @@ export class PhotoBlogService {
     }
   ];
 
-  getPhotos(): IPhoto[] {
+  getPhotos(): Photo[] {
     return this.photos;
   }
 }

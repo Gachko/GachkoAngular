@@ -8,6 +8,12 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/component/not-found.component';
 
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +25,10 @@ import { NotFoundComponent } from './not-found/component/not-found.component';
     CareModule,
     ContactsModule,
     CoreModule,
-    FlashMessagesModule.forRoot()   
+    FlashMessagesModule.forRoot() ,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

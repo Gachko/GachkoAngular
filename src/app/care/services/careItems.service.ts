@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ICareItem } from '../models/careItem.interface';
+import { CareItem } from '../models/careItem.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CareItemsService {
 
-   careItems: ICareItem[] = [
+   careItems: CareItem[] = [
      {
       num: 1,
       title: 'Храните пластинки вертикально',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService} from '../../../core/service/auth-service/auth.service';
+import { AuthService} from '../../../authentification/services/auth-service/auth.service';
 import { MainGoodsService } from '../../../core/service/mainGoods-service/main-goods.service';
-import { IGoods } from '../../../core/models/goods.interface';
+import { Goods } from '../../../core/models/goods.interface';
 
 @Component({
   selector: 'app-basket',
@@ -13,7 +13,7 @@ export class BasketComponent implements OnInit {
 
   sum: number;
   username = this.authService.currentUserName;
-  items: IGoods[];
+  items: Goods[];
 
   constructor(private authService: AuthService, 
               private mainGoodService: MainGoodsService ) {}
@@ -33,7 +33,7 @@ export class BasketComponent implements OnInit {
         this.mainGoodService.basket.splice( this.items.indexOf(item),1);    
       }
     });
-    this.items = this.items.filter(( item: IGoods) => {   
+    this.items = this.items.filter(( item: Goods) => {   
       return item.id !== event.id
     })  
    localStorage.setItem( 'basket', JSON.stringify ( this.mainGoodService.basket)); 

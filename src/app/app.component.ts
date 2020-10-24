@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef,  DoCheck, AfterViewInit } from '@angular/core';
-import {AuthService} from './core/service/auth-service/auth.service';
+import { AuthService } from './authentification/services/auth-service/auth.service';
 
 
 import { Router } from '@angular/router';
@@ -98,5 +98,9 @@ export class AppComponent implements  DoCheck, AfterViewInit {
       this.menu.nativeElement.classList.add('active')
     }
 
+  }
+
+  scroll(){
+    window.scrollTo(0,0)
   }
 }

@@ -1,4 +1,4 @@
-export interface IFilm {
+export interface Film {
     img: string,
     name: string,
     description: string,

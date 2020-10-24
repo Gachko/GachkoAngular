@@ -1,6 +1,6 @@
 import { Component,Input, Output, EventEmitter } from '@angular/core';
 
-import { IGoods } from '../../../core/models/goods.interface';
+import { Goods } from '../../../core/models/goods.interface';
 
 @Component({
   selector: 'app-goods-item',
@@ -9,9 +9,10 @@ import { IGoods } from '../../../core/models/goods.interface';
 })
 export class GoodsItemComponent {
 
+  searchStr= ''
 
   @Input('items')
-  items: IGoods;
+  items: Goods;
 
   @Output()
   addToWishList: EventEmitter<any> = new EventEmitter();

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 interface IGenre {
   value: number,
@@ -13,14 +13,18 @@ interface IGenre {
 })
 export class FilterComponent implements OnInit {
 
+
+
   @Output()
   checkGenre = new EventEmitter<any>();
+
+
 
   genre: IGenre[] = [
     {
       value: 0,
       genre: "ALL",
-      checked: true
+      checked: false
     },
     {
       value: 1,
@@ -60,20 +64,21 @@ export class FilterComponent implements OnInit {
   ] 
 
 
-  // chooseGenre( str){
- 
-  //   this.checkGenre.emit(str)
-  // }
+  
 
-
-  chooseGenre( $event, radio){
-    const change = $event.target.checked ? 1 : -1;
-    this.checkGenre.emit({
-      radio,
-      isChecked: $event.target.checked,
-      change
-    })
+  chooseGenre ($event) {
+  this.checkGenre.emit($event.target.value)
   }
+
+
+  // chooseGenre( $event, radio){
+  //   const change = $event.target.checked ? 1 : -1;
+  //   this.checkGenre.emit({
+  //     radio,
+  //     isChecked: $event.target.checked,
+  //     change
+  //   })
+  // }
   constructor() { }
 
   ngOnInit(): void {

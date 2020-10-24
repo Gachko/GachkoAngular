@@ -1,3 +1,5 @@
+import { Goods } from './models/goods.interface';
+
 export interface State {
-    goods: any[]
+    goods: Goods[]
 }

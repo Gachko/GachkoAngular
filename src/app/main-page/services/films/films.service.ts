@@ -1,9 +1,9 @@
-import { IFilm } from '../../models/films.interface';
+import { Film } from '../../models/films.interface';
 
 
 export class FilmsService {
 
-  films: IFilm[] = [
+  films: Film[] = [
     {
       img: '../../../../assets/films/whenAlbumsRuledTheWorld.jpg',
       name: "Когда пластинки правили миром",
@@ -41,7 +41,7 @@ export class FilmsService {
     }
   ];
 
-  getFilms(): IFilm[] {
+  getFilms(): Film[] {
     return this.films;
   }
 

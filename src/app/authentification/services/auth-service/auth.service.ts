@@ -12,7 +12,8 @@ export class AuthService {
 
   check: boolean ;
   
-  constructor(private afu: AngularFireAuth, private router: Router) {
+  constructor(private afu: AngularFireAuth, 
+              private router: Router) {
     this.afu.authState.subscribe((auth => {
       this.authState = auth;
       this.check = (this.authState)? true : false;

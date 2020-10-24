@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IGoods } from '../../../core/models/goods.interface';
+import { Goods } from '../../../core/models/goods.interface';
 
 @Component({
   selector: 'app-item-basket',
@@ -9,7 +9,7 @@ import { IGoods } from '../../../core/models/goods.interface';
 export class ItemBasketComponent  {
 
   @Output() removeFromBasket = new EventEmitter();  
-  @Input() items: IGoods;
+  @Input() items: Goods;
   
   remove(good) {
     this.removeFromBasket.emit(good);

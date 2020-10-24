@@ -12,8 +12,11 @@ import { FilterComponent } from './components/filter/filter.component';
 import { TooltipDirective } from './tooltip/tooltip.directive';
 import { CostPipe } from './pipes/cost.pipe';
 import { BasketComponent } from './container/basket/basket.component';
-import {AuthGuard} from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { ItemBasketComponent } from './components/item-basket/item-basket.component';
+
+import { SearchPipe } from './pipes/search.pipe'
+
 
 export const routes: Routes = [
 
@@ -34,7 +37,9 @@ export const routes: Routes = [
     TooltipDirective,
     FilterComponent,
     BasketComponent,
-    ItemBasketComponent
+    ItemBasketComponent,
+    SearchPipe,
+    
   ],
   imports: [
     CommonModule,

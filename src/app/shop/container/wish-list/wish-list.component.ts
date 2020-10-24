@@ -1,6 +1,6 @@
 import { Component,  OnInit } from '@angular/core';
 import { MainGoodsService } from '../../../core/service/mainGoods-service/main-goods.service';
-import { IGoods } from '../../../core/models/goods.interface';
+import { Goods } from '../../../core/models/goods.interface';
 import { Store } from '../../../core/store';
 
 @Component({
@@ -10,7 +10,7 @@ import { Store } from '../../../core/store';
 })
 export class WishListComponent implements OnInit {
 
- wishList: IGoods[];
+ wishList: Goods[];
 
  constructor( private mainGoodsService: MainGoodsService, 
               private store: Store ) { }
@@ -24,9 +24,10 @@ export class WishListComponent implements OnInit {
     this.wishList.forEach ( item => {
       if( item.id == event.id ) {
           this.mainGoodsService.wishList.splice( this.wishList.indexOf(item),1);
+          item.favourite = false;
       }
 });
-    this.wishList = this.wishList.filter(( item: IGoods) =>  item.id !== event.id)
+    this.wishList = this.wishList.filter(( item: Goods) =>  item.id !== event.id)
    
     localStorage.setItem( 'wishList', JSON.stringify ( this.mainGoodsService.wishList));
   }

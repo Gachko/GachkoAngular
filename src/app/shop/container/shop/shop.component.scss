@@ -9,6 +9,74 @@ ul {
     padding: 0;
 }
 
-input {
-    margin-top: 300px;
+.search {
+  margin-bottom: 30px;
+  input{
+
+      border: none;
+      border-bottom: 2px solid #838383 ;
+      outline: none;
+      width: 100%;
+      font-size: 19px;
+
+      &:focus {
+          border-bottom: 2px solid #131313;
+      }
+  }
+}
+
+
+.up{
+
+  transform: rotate(-90deg);
+  position: fixed;
+  
+  width: 50px;
+  height: 2px;
+
+  background: #131313d0;
+
+  bottom: 30px;
+  left: 150px;
+ 
+
+  &:hover {
+    cursor: pointer;
+  }
+
+
+  &:before, &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right: 0;
+  }
+
+  &:after {
+    top: -5px;
+    right: -10px;
+    border-left-color: #131313d0;
+    border-width: 6px 0 6px 10px;
+  }
+
+
+}
+
+@media(max-width: 1500px ) {
+
+  .up{
+      left: 70px;
+  }
+   
+}
+
+@media(max-width: 1300px ) {
+
+  .up{
+      left: -10px;
+  }
+   
 }

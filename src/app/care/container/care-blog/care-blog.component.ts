@@ -2,7 +2,7 @@ import { Component, ViewContainerRef, ViewChild, AfterContentInit, ComponentFact
 
 import { CareItemsService } from '../../services/careItems.service';
 import { CareItemComponent } from '../../components/care-item/care-item.component';
-import { ICareItem } from '../../models/careItem.interface'
+import { CareItem } from '../../models/careItem.interface'
 
 @Component({
   selector: 'app-care-blog',
@@ -12,7 +12,7 @@ import { ICareItem } from '../../models/careItem.interface'
 })
 export class CareBlogComponent implements OnInit {
 
-  items: ICareItem[];
+  items: CareItem[];
 
   @ViewChild('item', { read: ViewContainerRef, static: true }) item: ViewContainerRef;
 

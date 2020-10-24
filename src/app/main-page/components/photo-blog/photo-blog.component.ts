@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPhoto } from '../../models/photo.interface'
+import { Photo } from '../../models/photo.interface'
 import { PhotoBlogService } from '../../services/photo-blog/photo-blog.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { PhotoBlogService } from '../../services/photo-blog/photo-blog.service';
 })
 export class PhotoBlogComponent implements OnInit {
 
-  photos: IPhoto[];
+  photos: Photo[];
 
   constructor( private photoBlogService: PhotoBlogService) { }
 

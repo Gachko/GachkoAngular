@@ -1,4 +1,4 @@
-export interface ICareItem {
+export interface CareItem {
     num: number,
     title: string,
     text: string,

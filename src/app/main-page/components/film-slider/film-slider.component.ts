@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmsService } from '../../services/films/films.service';
-import { IFilm } from '../../models/films.interface';
+import { Film } from '../../models/films.interface';
 @Component({
   selector: 'app-film-slider',
   templateUrl: './film-slider.component.html',
@@ -9,8 +9,8 @@ import { IFilm } from '../../models/films.interface';
 })
 export class FilmSliderComponent implements OnInit {
 
-  films: IFilm[];
-  currentFilm: IFilm;
+  films: Film[];
+  currentFilm: Film;
   i = 0;
  
   constructor(private filmService: FilmsService) { }
