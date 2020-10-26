@@ -1,26 +1,19 @@
-
-
-<div class="container">
+<div class = "container">
     <app-filter (checkGenre) = "checkedGenre($event)">
-        <div class="search">
-            <input type="text" placeholder="Поиск" [(ngModel)]="text"  #field>
-        </div>
-        
+        <div class = "search">
+            <input type = "text" placeholder="Поиск" [(ngModel)] = "text"  #field>
+        </div>     
     </app-filter>
-    <div *ngIf="!showSpinner" class="up" (click)="scrollTop()"></div>
-    <app-goods-item  [items]="goods" (addToWishList)="addToWishList($event)"></app-goods-item>  
-
     
-   
-    <app-spinner  *ngIf="showSpinner"></app-spinner>
+    <div *ngIf="!showSpinner" class = "up" (click)="scrollTop()"></div>
 
+    <app-goods-item  [items] = "goods" (addToWishList)="addToWishList($event)"></app-goods-item>  
 
-       
-        
- 
+    <app-spinner  *ngIf = "showSpinner"></app-spinner>
+     
 </div>
 
 
 
-<!-- goods | async -->
+
 

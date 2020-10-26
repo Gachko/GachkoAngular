@@ -1,22 +1,21 @@
-<ul class="list">
-  <li *ngFor="let item of items; index as i" class="item">
-    <div class="card">
-        <div class="test">
-          <span  class="item-like"  tooltip = "Добавить в избранное" #myTooltip="tooltip" >
-            <span (click)="add(i)" class="like" [class.active]="item.favourite" (mouseover)="myTooltip.show()" (mouseout)="myTooltip.hide()" ></span>
+<ul class = "list">
+  <li *ngFor = "let item of items; index as i" class = "item">
+    <div class = "card">
+        <div class = "test">
+          <span  class = "item-like"  tooltip = "Добавить в избранное" #myTooltip = "tooltip" >
+            <span (click) = "add(i)" class="like" [class.active]="item.favourite" (mouseover) = "myTooltip.show()" (mouseout) = "myTooltip.hide()" ></span>
           </span>
-        <div class="pic">
-          <img class="card__img" src="{{item.pathToImg}}" alt="{{item. name}}">
+        <div class = "pic">
+          <img class = "card__img" src = "{{item.pathToImg}}" alt = "{{item. name}}">
         </div>
       </div>
-      <div class="discription">
-       <!-- //routerLink="product/{{item.id}}" <a [routerLink]="['/product', item.id]"> -->
-        <a [routerLink]="['/product', item.id]">
+      <div class = "discription">
+        <a [routerLink] = "['/product', item.id]">
           <span class="item_discription-author-name">{{item.author}}-{{item.name}}</span>
         </a>
         <br />
-        <span class="item_discription-year">{{item.year}}</span>
-        <p class="item_discription-cost">{{ item.cost | currencyBYN }}</p>
+        <span class = "item_discription-year">{{item.year}}</span>
+        <p class = "item_discription-cost">{{ item.cost | currencyBYN }}</p>
       </div>
     </div>
   </li>

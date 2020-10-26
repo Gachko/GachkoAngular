@@ -9,11 +9,9 @@ import { PictureComponent } from './components/picture/picture.component';
 import { FilmSliderComponent } from './components/film-slider/film-slider.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-
 const routes: Routes = [
   { path: '', component: MainPageComponent }
 ];
-
 
 @NgModule({
   declarations: [ 
@@ -23,16 +21,11 @@ const routes: Routes = [
     ForewordCareComponent,
     PictureComponent,
     FilmSliderComponent,
-    FooterComponent,
-    
-   
+    FooterComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class MainPageModule { }

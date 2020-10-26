@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef,  DoCheck, AfterViewInit } from '@angular/core';
 import { AuthService } from './authentification/services/auth-service/auth.service';
-import { CardService } from './core/service/card-service/card.service';
+import { CartService } from './shop/services/cart-service/cart.service';
 import { Router } from '@angular/router';
 
 
@@ -64,7 +64,7 @@ export class AppComponent implements  DoCheck, AfterViewInit {
 
   constructor ( private authService: AuthService, 
                 private router: Router,
-                private cardService: CardService  ) {}
+                private cartService: CartService  ) {}
 
   isUser(){
     if ( this.authService.currentUser ) {
@@ -75,7 +75,7 @@ export class AppComponent implements  DoCheck, AfterViewInit {
   }
 
   ngDoCheck() { 
-    this.nav[4].quantity = this.cardService.counter;
+    this.nav[4].quantity = this.cartService.counter;
     this.nav[3].quantity = ("wishList" in localStorage)? JSON.parse(localStorage.getItem('wishList')).length : null;
     this.enter = this.authService.check?"Выйти":"Войти";
   }

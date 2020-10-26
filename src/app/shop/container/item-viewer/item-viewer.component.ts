@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../authentification/services/auth-service/auth.service';
-import { MainGoodsService } from '../../../core/service/mainGoods-service/main-goods.service';
-import { Good } from '../../../core/models/goods.interface';
-import { CardService } from '../../../core/service/card-service/card.service'
+import { MainGoodsService } from '../../services/mainGoods-service/main-goods.service';
+import { Good } from '../../../models/goods.interface';
+import { CartService } from '../../services/cart-service/cart.service'
 
 @Component({
   selector: 'app-item-viewer',
@@ -23,7 +23,7 @@ export class ItemViewerComponent implements OnInit {
     private router: Router,
     private service: MainGoodsService,
     private authService: AuthService,
-    private cardService: CardService
+    private cartService: CartService
     ) {}
 
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class ItemViewerComponent implements OnInit {
       this.notice.nativeElement.style.display  = "";
     }, 800
     );  
-    this.cardService.addGood(event);
+    this.cartService.addGood(event);
   }
    else {
     this.router.navigate(['/login'])    

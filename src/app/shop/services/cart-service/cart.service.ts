@@ -1,34 +1,33 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../../authentification/services/auth-service/auth.service';
-import { MainGoodsService } from '../mainGoods-service/main-goods.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Good } from '../../../core/models/goods.interface';
+import { Good } from '../../../models/goods.interface';
 import { Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CardService {
+export class CartService {
 
-  cardGoods: Observable<Good[]>;
+  cartGoods: Observable<Good[]>;
   clientDoc: AngularFirestoreDocument<Good>;
   counter: number = 0;
 
   constructor( 
     private afs: AngularFirestore,
-    private goodsSeervice: MainGoodsService,
     private authService: AuthService 
-    ) {}
+  ) {}
 
-getCard(): Observable<Good[]> {
-  this.cardGoods = this.authService.getAuth().pipe(
+getCart(): Observable<Good[]> {
+  this.cartGoods = this.authService.getAuth().pipe(
     switchMap(user => {
       if ( user ) {
         return this.afs
           .doc<any>(`cards/${user.uid}`)
           .collection('goods', ref => ref.orderBy('id', 'asc'))
           .snapshotChanges().pipe(
+            delay(600),
             map(changes => {
               return changes.map(action => {
                 const data = action.payload.doc.data() as Good;
@@ -44,18 +43,17 @@ getCard(): Observable<Good[]> {
   );
   
   
-  return this.cardGoods;
+  return this.cartGoods;
 }
 
-
-addGood(good: Good) {
-  
+addGood(good: Good) {  
   this.authService.getAuth().pipe(
     switchMap((user) => {
-      return this.afs.collection<any>(`cards/${user.uid}/goods`)
-      .add(good)
+        return this.afs.collection<any>(`cards/${user.uid}/goods`)
+      .add(good)      
     })
   ).subscribe();
+
 }
 
 deleteGood(good: Good) {
@@ -67,7 +65,19 @@ deleteGood(good: Good) {
   ).subscribe();
 }
 
+checkGood( good: Good, user): any {
+     this.afs.collection<any>(`cards/${user.uid}/goods`)
+     .ref.where('id', '==', good.id)
+     .get().then((ref) => {
+       let res = ref.docs.map(doc => doc.data() as Good)
+       if(res.length > 0) return true;
+       else return false;
+     })
+  }
 
 }
+
+
+
 
 

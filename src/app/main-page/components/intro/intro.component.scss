@@ -83,7 +83,9 @@ $color: #fff;
  }
 
  @media(max-width:490px) {
+    
     .intro-inner {
+       margin-top: 0;
        h1 {
            font-size: 3.3em;
        }

@@ -1,5 +1,5 @@
 import { Component,Input, Output, EventEmitter } from '@angular/core';
-import { Good } from '../../../core/models/goods.interface';
+import { Good } from '../../../models/goods.interface';
 
 @Component({
   selector: 'app-goods-item',

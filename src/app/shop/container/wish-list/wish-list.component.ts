@@ -1,5 +1,5 @@
 import { Component,  OnInit } from '@angular/core';
-import { Good } from '../../../core/models/goods.interface';
+import { Good } from '../../../models/goods.interface';
 
 @Component({
   selector: 'app-wish-list',

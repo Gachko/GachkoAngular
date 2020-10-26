@@ -102,6 +102,7 @@ h1,h2,h3,h4,h5 {
   margin-left: 35%;
 
 
+
   
   
 
@@ -138,6 +139,10 @@ h1,h2,h3,h4,h5 {
 
 
 
-
+@media(max-width: 500px) {
+  .alert-success {
+    margin: 0 auto;
+  }
+}
 
 

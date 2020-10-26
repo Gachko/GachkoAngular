@@ -12,12 +12,16 @@ const routes: Routes = [
   { path: 'contacts',pathMatch: 'full',  loadChildren: './contacts/contacts.module#ContactsModule' },
   { path: 'shop', redirectTo: '/shop' },
   { path: 'register', redirectTo: '/register' },
-
   { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), ShopModule , MainPageModule, AuthentificationModule],
+  imports: [
+    RouterModule.forRoot(routes), 
+    ShopModule , 
+    MainPageModule, 
+    AuthentificationModule
+  ],
   exports: [RouterModule],
   providers: []
 })

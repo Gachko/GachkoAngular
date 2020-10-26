@@ -1,0 +1,26 @@
+<div class="container relative">
+    <div class="info">
+        <h3>Ваш логин: {{username}}</h3>        
+    </div> 
+    <div *ngIf = "totalSum > 0; else msg" class = "container">
+        <ul *ngIf = "!showSpinner"  class="list"> 
+            <app-cart-item [items] = "items" (removeFromCart) = "removeFromCart($event)"></app-cart-item>
+        </ul>
+        <h3 class = "sum"><span>Итого:</span>{{totalSum | currencyBYN}}</h3>
+    </div>     
+</div>
+
+
+<app-spinner *ngIf= "showSpinner"></app-spinner>
+
+   
+<ng-template #msg>
+    <div *ngIf = "!showSpinner" class = "container container-inner">
+        <div class = "message">
+            <h3>Корзина пуста.</h3>
+            <p>Начните покупки прямо сейчас!</p>
+            <a [routerLink] = "['/shop']">В МАГАЗИН</a>
+        </div>
+    </div>
+</ng-template>
+    

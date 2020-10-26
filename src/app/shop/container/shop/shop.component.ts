@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MainGoodsService } from '../../../core/service/mainGoods-service/main-goods.service';
-import { Good } from '../../../core/models/goods.interface';
+import { MainGoodsService } from '../../services/mainGoods-service/main-goods.service';
+import { Good } from '../../../models/goods.interface';
 
 @Component({
   selector: 'app-shop',

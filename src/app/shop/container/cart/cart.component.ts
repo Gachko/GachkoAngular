@@ -1,36 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../../authentification/services/auth-service/auth.service';
-import { Good } from '../../../core/models/goods.interface';
-import { CardService } from '../../../core/service/card-service/card.service'
+import { Good } from '../../../models/goods.interface';
+import { CartService } from '../../services/cart-service/cart.service'
 
 @Component({
-  selector: 'app-basket',
-  templateUrl: './basket.component.html',
-  styleUrls: ['./basket.component.scss']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.scss']
 })
-export class BasketComponent implements OnInit {
+export class CartComponent implements OnInit {
 
 
   totalSum: number;
   username = this.authService.currentUserName;
   items: Good[];
+  showSpinner = true;
 
   constructor(
     private authService: AuthService, 
-    private cardService: CardService  
+    private cartService: CartService  
 ) {}
 
   ngOnInit(): void {
-    this.cardService.getCard().subscribe( items => {
+    this.cartService.getCart().subscribe( items => {
     this.items = items; 
-    this.getTotalSum();     
+    this.getTotalSum();
+    this.showSpinner = false;     
     });
 
   }
 
-  removeFromCard(event) {
+  removeFromCart(event) {
     console.log(event)
-    this.cardService.deleteGood(event);
+    this.cartService.deleteGood(event);
   }
 
   getTotalSum() {
