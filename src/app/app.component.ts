@@ -78,10 +78,12 @@ export class AppComponent implements  DoCheck, AfterViewInit {
     this.nav[4].quantity = this.cartService.counter;
     this.nav[3].quantity = ("wishList" in localStorage)? JSON.parse(localStorage.getItem('wishList')).length : null;
     this.enter = this.authService.check?"Выйти":"Войти";
+    
   }
 
   ngAfterViewInit() {
     this.header.nativeElement.classList.add('fixed');
+    
   }
 
   openMenu() {
@@ -101,6 +103,6 @@ export class AppComponent implements  DoCheck, AfterViewInit {
   }
 
   scroll(){
-    window.scrollTo(0,0)
+    window.scrollTo(0,0);
   }
 }

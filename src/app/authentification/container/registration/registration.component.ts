@@ -39,8 +39,7 @@ export class RegistrationComponent implements OnInit {
     {
       this.authservice.registerWithEmail(user.email,user.password)
       .then((res) => {
-        console.log(res)
-       return this.afs.collection('cards').doc(res['user'].uid).set({
+       return this.afs.collection('carts').doc(res['user'].uid).set({
          email: user.email
        })
       })

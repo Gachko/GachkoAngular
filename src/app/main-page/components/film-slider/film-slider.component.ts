@@ -17,7 +17,6 @@ export class FilmSliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.films = this.filmService.getFilms();
-    console.log(this.films)
     this.currentFilm = this.films[0];
   }
 

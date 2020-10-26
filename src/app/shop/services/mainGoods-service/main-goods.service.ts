@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Good } from '../../../models/goods.interface';
 import { map, delay } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-
 import { AngularFirestore, AngularFirestoreCollection,AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
@@ -10,11 +9,7 @@ import { AngularFirestore, AngularFirestoreCollection,AngularFirestoreDocument }
 })
 export class MainGoodsService {
 
-  wishList: Good[] = [];
   
-  
-
- 
   goodsCollection: AngularFirestoreCollection<Good>;
   goodDoc: AngularFirestoreDocument<Good>;
   goods: Observable<Good[]>;
@@ -26,6 +21,11 @@ export class MainGoodsService {
       .collection('goods', ref => ref.orderBy('id', 'asc'));    
       // this.goodsCollection = this.afs
       // .collection(('goods'), ref => ref.where('genre', '==', 'POP')  )    
+  }
+
+
+  getGenre(genre) {
+   
   }
 
   getGoods(): Observable<Good[]> {

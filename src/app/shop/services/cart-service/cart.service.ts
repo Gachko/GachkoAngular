@@ -24,7 +24,7 @@ getCart(): Observable<Good[]> {
     switchMap(user => {
       if ( user ) {
         return this.afs
-          .doc<any>(`cards/${user.uid}`)
+          .doc<any>(`carts/${user.uid}`)
           .collection('goods', ref => ref.orderBy('id', 'asc'))
           .snapshotChanges().pipe(
             delay(600),
@@ -49,7 +49,7 @@ getCart(): Observable<Good[]> {
 addGood(good: Good) {  
   this.authService.getAuth().pipe(
     switchMap((user) => {
-        return this.afs.collection<any>(`cards/${user.uid}/goods`)
+        return this.afs.collection<any>(`carts/${user.uid}/goods`)
       .add(good)      
     })
   ).subscribe();
@@ -59,14 +59,14 @@ addGood(good: Good) {
 deleteGood(good: Good) {
   this.authService.getAuth().pipe(
     switchMap((user) => {
-      this.clientDoc = this.afs.doc(`cards/${user.uid}/goods/${good.id}`);
+      this.clientDoc = this.afs.doc(`carts/${user.uid}/goods/${good.id}`);
       return this.clientDoc.delete();
     })
   ).subscribe();
 }
 
 checkGood( good: Good, user): any {
-     this.afs.collection<any>(`cards/${user.uid}/goods`)
+     this.afs.collection<any>(`carts/${user.uid}/goods`)
      .ref.where('id', '==', good.id)
      .get().then((ref) => {
        let res = ref.docs.map(doc => doc.data() as Good)

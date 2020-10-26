@@ -26,9 +26,6 @@ const routes: Routes = [
     RegistrationComponent
   ],
   imports: [
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFireDatabaseModule,
-    // AngularFirestoreModule,
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),

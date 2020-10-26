@@ -22,8 +22,7 @@ const routes: Routes = [
     MainPageModule, 
     AuthentificationModule
   ],
-  exports: [RouterModule],
-  providers: []
+  exports: [RouterModule]
 })
 export class AppRoutingModule { 
 
