@@ -1,8 +1,9 @@
 <div class="filter">
     <ng-content></ng-content>
-    <label *ngFor ="let radio of genre">
-        <input type="radio" value="{{radio.genre}}"  [checked]="radio.checked" name = "checkGenre" (change)="chooseGenre($event, radio)" > {{radio.genre}}
-    </label>
-
-   
+    <div class="filter-genre">
+        <label *ngFor="let radio of genre">
+            <input type="radio" value="{{radio.genre}}" [checked]="radio.checked" name="checkGenre"
+                (change)="chooseGenre($event, radio)"> {{radio.genre}}
+        </label>
+    </div>
 </div>

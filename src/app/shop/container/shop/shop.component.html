@@ -1,8 +1,9 @@
 <div class = "container">
+    
     <app-filter (checkGenre) = "checkedGenre($event)">
-        <div class = "search">
-            <input type = "text" placeholder="Поиск" [(ngModel)] = "text"  #field>
-        </div>     
+        <div class = "search" >
+            <input type = "text" placeholder="Поиск" #input>
+        </div>
     </app-filter>
     
     <div *ngIf="!showSpinner" class = "up" (click)="scrollTop()"></div>
@@ -10,6 +11,12 @@
     <app-goods-item  [items] = "goods" (addToWishList)="addToWishList($event)"></app-goods-item>  
 
     <app-spinner  *ngIf = "showSpinner"></app-spinner>
+
+    <div class="no-items" *ngIf="goods.length == 0 && !showSpinner">
+        <h1>
+            Увы, но товары не найдены
+        </h1>
+    </div>
      
 </div>
 

@@ -3,7 +3,7 @@
         <div class="auth-form">
             <div>
                 <app-auth-form [email]="email" [password]="password" (submit)="submit($event)">
-                    <h3 class="title">Вход</h3>
+                    <h3 class="title" #title>Вход</h3>
 
                     <button type="submit">
                         Войти

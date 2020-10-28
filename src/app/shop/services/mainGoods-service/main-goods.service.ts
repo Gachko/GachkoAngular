@@ -25,12 +25,13 @@ export class MainGoodsService {
 
 
   getGenre(genre) {
-   
+    // this.goodsCollection = this.afs
+    //   .collection(('goods'), ref => ref.where('genre', '==', genre.toString())  )  
   }
 
   getGoods(): Observable<Good[]> {
     this.goods = this.goodsCollection.snapshotChanges().pipe(
-      delay(2000),
+      delay(1000),
       map(goods => {
         return goods.map(goods => {
           const data = goods.payload.doc.data() as Good;
@@ -46,7 +47,7 @@ export class MainGoodsService {
   getGood(id: number | string): Observable<Good> {
     this.goodDoc = this.afs.doc<Good>(`goods/${id}`);
       this.good = this.goodDoc.snapshotChanges().pipe(
-        delay(1000),
+        delay(700),
         map(action => {        
             const data = action.payload.data() as Good;
             data.id = action.payload.id;

@@ -5,11 +5,16 @@
     flex-wrap: wrap;
 }
 
+.no-items{
+  text-align: center;
+}
+
 ul {
     padding: 0;
 }
 
 .search {
+  margin-top: 100px;
   margin-bottom: 30px;
   input{
 
@@ -32,7 +37,7 @@ ul {
   position: fixed;
   
   width: 50px;
-  height: 2px;
+  height: 4px;
 
   background: #131313d0;
 
@@ -51,12 +56,12 @@ ul {
     position: absolute;
     width: 0;
     height: 0;
-    border: 20px solid transparent;
+    border: 27px solid transparent;
     border-right: 0;
   }
 
   &:after {
-    top: -5px;
+    top: -4px;
     right: -10px;
     border-left-color: #131313d0;
     border-width: 6px 0 6px 10px;

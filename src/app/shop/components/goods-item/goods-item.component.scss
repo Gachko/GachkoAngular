@@ -137,15 +137,21 @@ a {
     opacity: .7;
 }
 
-.test:hover .pic .card__img{
+.wrapper:hover .pic .card__img{
     opacity: .6; 
 }
 
-.test:hover .item-like {
+.wrapper:hover .item-like {
     opacity: 1;
 }
 
 
 .isWish {
     border: 4px solid #734567;
+}
+
+@media(max-width: 375px) {
+    .card__img {
+        width: 100%;
+    }
 }

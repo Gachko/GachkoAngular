@@ -1,6 +1,6 @@
-<div *ngIf = "wishList.length; else message" class = "container">  
+<div *ngIf = "wishtListService.wishList.length; else message" class = "container">  
     <ul  class = "list"> 
-        <app-goods-item  [items] = "wishList" (addToWishList) = "removeToWishList($event)" ></app-goods-item>        
+        <app-goods-item  [items] = "wishtListService.wishList" (addToWishList) = "removeToWishList($event)" ></app-goods-item>        
     </ul>
 </div>
 

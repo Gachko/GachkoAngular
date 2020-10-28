@@ -1,15 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService} from '../../../authentification/services/auth-service/auth.service';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+  keyframes,
+  group
+} from '@angular/animations';
+
 import { Good } from '../../../models/goods.interface';
+import { AuthService} from '../../../authentification/services/auth-service/auth.service';
 import { CartService } from '../../services/cart-service/cart.service'
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
+  animations: [
+    trigger('list', [
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100px)'
+        }),
+        animate(300)
+      ])
+    ])
+  ]
 })
 export class CartComponent implements OnInit {
-
 
   totalSum: number;
   username = this.authService.currentUserName;
@@ -27,7 +47,6 @@ export class CartComponent implements OnInit {
     this.getTotalSum();
     this.showSpinner = false;     
     });
-
   }
 
   removeFromCart(event) {
@@ -40,4 +59,17 @@ export class CartComponent implements OnInit {
       return total + parseFloat(good.cost.toString())
     }, 0)
   }
+}
+
+
+function unique(arr) {
+  let result = [];
+
+  for (let str of arr) {
+    if (!result.includes(str)) {
+      result.push(str);
+    }
+  }
+
+  return result;
 }

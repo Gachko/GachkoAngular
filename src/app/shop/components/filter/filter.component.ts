@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ContentChild, EventEmitter, OnInit, Output } from '@angular/core';
 
 interface IGenre {
   value: number,
@@ -14,7 +14,6 @@ interface IGenre {
 export class FilterComponent implements OnInit {
 
 
-
   @Output()
   checkGenre = new EventEmitter<any>();
 
@@ -24,7 +23,7 @@ export class FilterComponent implements OnInit {
     {
       value: 0,
       genre: "ALL",
-      checked: false
+      checked: true
     },
     {
       value: 1,

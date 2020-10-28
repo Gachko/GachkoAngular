@@ -7,7 +7,7 @@ import { AuthentificationModule } from './authentification/authentification.modu
 
 const routes: Routes = [
   
-  { path: '', redirectTo: '/', pathMatch: 'full'},
+  { path: '', redirectTo: '', pathMatch: 'full'},
   { path: 'care', pathMatch: 'full', loadChildren: './care/care.module#CareModule' },
   { path: 'contacts',pathMatch: 'full',  loadChildren: './contacts/contacts.module#ContactsModule' },
   { path: 'shop', redirectTo: '/shop' },
@@ -22,7 +22,8 @@ const routes: Routes = [
     MainPageModule, 
     AuthentificationModule
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
 })
 export class AppRoutingModule { 
 

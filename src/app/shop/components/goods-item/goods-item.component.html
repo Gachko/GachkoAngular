@@ -1,7 +1,7 @@
 <ul class = "list">
   <li *ngFor = "let item of items; index as i" class = "item">
     <div class = "card">
-        <div class = "test">
+        <div class = "wrapper">
           <span  class = "item-like"  tooltip = "Добавить в избранное" #myTooltip = "tooltip" >
             <span (click) = "add(i)" class="like" [class.active]="item.favourite" (mouseover) = "myTooltip.show()" (mouseout) = "myTooltip.hide()" ></span>
           </span>

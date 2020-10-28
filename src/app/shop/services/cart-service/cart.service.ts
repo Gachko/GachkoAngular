@@ -3,7 +3,7 @@ import { AuthService } from '../../../authentification/services/auth-service/aut
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Good } from '../../../models/goods.interface';
 import { Observable, of } from 'rxjs';
-import { map, switchMap, delay } from 'rxjs/operators';
+import { map, switchMap, delay, distinct, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

@@ -10,6 +10,8 @@ import { firebase } from '../environments/firebase';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { WishListService } from './wish-list.service'
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireDatabaseModule,
     AngularFirestoreModule, 
   ],
-  providers: [],
+  providers: [ WishListService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,7 +26,7 @@ export class AppComponent implements  DoCheck, AfterViewInit {
     },
     {
       link: '/care',
-      name: 'Уход',
+      name: 'Уход за винилом',
       exact: true
     },
     {
@@ -86,7 +86,7 @@ export class AppComponent implements  DoCheck, AfterViewInit {
     
   }
 
-  openMenu() {
+  toggleMenu() {
 
     if (this.navToggle.nativeElement.classList.contains('active')) {
       this.navToggle.nativeElement.classList.remove('active')
@@ -104,5 +104,6 @@ export class AppComponent implements  DoCheck, AfterViewInit {
 
   scroll(){
     window.scrollTo(0,0);
+    this.toggleMenu();
   }
 }

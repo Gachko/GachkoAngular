@@ -1,5 +1,12 @@
 .filter {
     margin-top: 200px;
+    
+}
+
+.filter-genre{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .search {
