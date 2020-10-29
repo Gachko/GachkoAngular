@@ -12,7 +12,6 @@ import { Store } from './store';
 export class GoodsService {
 
   goods: Observable<Good[]>;
-  wishList: Good[] = [];
  
   constructor( 
     private afs: AngularFirestore,
