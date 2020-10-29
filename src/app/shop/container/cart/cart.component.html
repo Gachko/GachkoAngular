@@ -1,4 +1,9 @@
+
 <div class="container relative">
+    <div class="modal" [class.active]= "modalVisible">
+        Извините, но заказы временно недоступны
+    </div>
+
     <div class="info">
         <h3>Ваш логин: {{username}}</h3>        
     </div> 
@@ -16,9 +21,12 @@
 
         </ul>
         <h3 class = "sum"><span>Итого:</span>{{totalSum | currencyBYN}}</h3>
-    </div>     
+        <div >
+            <button class="btn" (click)="order()">Заказать</button>
+        </div> 
+    </div>
+        
 </div>
-
 
 <app-spinner *ngIf= "showSpinner"></app-spinner>
 
@@ -33,4 +41,9 @@
         </div>
     </div>
 </ng-template>
+
     
+
+
+
+

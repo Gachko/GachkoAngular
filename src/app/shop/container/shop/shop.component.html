@@ -8,16 +8,15 @@
     
     <div *ngIf="!showSpinner" class = "up" (click)="scrollTop()"></div>
 
-    <app-goods-item  [items] = "goods" (addToWishList)="addToWishList($event)"></app-goods-item>  
+    <app-goods-item  [goods] = "filtered.length > 0 ? filtered : goods | async" (addToWishList)="addToWishList($event)"></app-goods-item>  
 
     <app-spinner  *ngIf = "showSpinner"></app-spinner>
 
-    <div class="no-items" *ngIf="goods.length == 0 && !showSpinner">
+    <!-- <div class="no-items" *ngIf="goods.length == 0 && !showSpinner">
         <h1>
             Увы, но товары не найдены
         </h1>
-    </div>
-     
+    </div>  -->
 </div>
 
 

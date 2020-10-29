@@ -1,32 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-  keyframes,
-  group
-} from '@angular/animations';
 
 import { FilmsService } from '../../services/films/films.service';
 import { Film } from '../../models/films.interface';
+
+
 @Component({
   selector: 'app-film-slider',
   templateUrl: './film-slider.component.html',
   styleUrls: ['./film-slider.component.scss'],
-  providers:  [ FilmsService ],
-  animations: [
-  ]
+  providers:  [ FilmsService ]
 })
 export class FilmSliderComponent implements OnInit {
 
   films: Film[];
   currentFilm: Film;
   i = 0;
-
-  
-
 
   constructor(private filmService: FilmsService) { }
 

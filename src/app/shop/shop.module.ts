@@ -15,7 +15,6 @@ import { CartComponent } from './container/cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { SearchPipe } from './pipes/search.pipe';
 
 
 export const routes: Routes = [
@@ -38,8 +37,7 @@ export const routes: Routes = [
     FilterComponent,
     CartComponent,
     CartItemComponent,
-    SpinnerComponent,
-    SearchPipe
+    SpinnerComponent
   ],
   imports: [
     CommonModule,

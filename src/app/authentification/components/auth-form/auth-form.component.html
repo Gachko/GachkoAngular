@@ -1,5 +1,4 @@
 <div>
-    <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
         <ng-content select=".title"></ng-content>
         <label for="">
             Email:
@@ -13,6 +12,4 @@
         <br>
         <ng-content select="app-auth-remember"></ng-content>
         <ng-content select="button"></ng-content>
-    </form>
 </div>
-<!-- //(ngSubmit)="login(form.value)" -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService} from '../../services/auth-service/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -8,12 +8,11 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   templateUrl: './authentification.component.html',
   styleUrls: ['./authentification.component.scss']
 })
-export class AuthentificationComponent implements OnInit {
+export class AuthentificationComponent {
 
   email = "";
   password="";
   message = ""
-
   errorMessage = ''; 
   error: { name: string, message: string} = {
     name: "",
@@ -23,11 +22,8 @@ export class AuthentificationComponent implements OnInit {
   constructor(
     private authservice: AuthService, 
     private router: Router, 
-    private flashMessages: FlashMessagesService) 
-    { }
-
-  ngOnInit(): void {
-  }
+    private flashMessages: FlashMessagesService
+) { }
 
   clearErrorMessage() {
     this.errorMessage = '';

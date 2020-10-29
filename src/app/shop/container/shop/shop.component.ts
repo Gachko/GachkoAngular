@@ -1,104 +1,92 @@
-import { Component, ElementRef, EventEmitter, HostListener, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { from, fromEvent, Observable, Subscription, Subject } from 'rxjs';
-import { tap, pluck, map, filter, debounceTime,distinctUntilChanged } from 'rxjs/operators';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { fromEvent, Observable, Subscription } from 'rxjs';
+import { map, debounceTime } from 'rxjs/operators';
 
-import { MainGoodsService } from '../../services/mainGoods-service/main-goods.service';
 import { Good } from '../../../models/goods.interface';
-import { WishListService } from '../../../wish-list.service';
-
+import { GoodsService } from '../../../goods.service';
+import { Store } from '../../../store'
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements AfterViewInit{
+export class ShopComponent implements OnInit, OnDestroy, AfterViewInit{
 
-   @ViewChild('input', {static: false}) input: ElementRef;
+  @ViewChild('input', {static: false}) input: ElementRef;
 
-   text; 
-   subscription;
-   goods: Good[];
-   wishList;
    showSpinner = true;
-   filter = [];
-
-
-
-   ngAfterViewInit() {
-    fromEvent(this.input.nativeElement, 'input').pipe(
-      tap(e => console.log(e)),
-      debounceTime(1000),
-      distinctUntilChanged(),
-      tap(() => this.filter = [] ),
-      filter(() =>this.input.nativeElement.value.trim()),
-      tap(() => this.filter = this.goods.filter(good => good.author.includes(this.input.nativeElement.value))),
-      tap(() => this.goods = this.filter)
-    ).subscribe()
-    this.input.nativeElement.value = ''
-}
-
-   
- 
-
+   filtered: Good[] = [];
+   goods: Observable<Good[]>;
+   subscription: Subscription;
 
   constructor( 
-    private mainGoodsService: MainGoodsService,
-    private wishtListService: WishListService
-    ) 
-{
-    this.mainGoodsService.getGoods().subscribe( goods=> {
-      this.goods = goods;
-      this.showSpinner = false
-}); 
+    private goodsService: GoodsService,
+    private store: Store
+) {}
+
+ngOnInit() {
+
+  this.goods = this.store.select('goods');
+  this.subscription = this.goodsService.getGoods.pipe(
+      map(goods => goods.map( good => {
+        if ( good.id in localStorage ) {
+          good.favourite = true
+        }
+      })
+    )
+  )   
+  .subscribe( _ => this.showSpinner = false );
 }
 
-    
+ngAfterViewInit() {
+   fromEvent(this.input.nativeElement, 'input').pipe(
+    debounceTime(1500)
+   ).subscribe(()=> {
+      this.filtered = this.store.value.goods.filter( item => item.name.includes(this.input.nativeElement.value) 
+                                                    || item.author.includes(this.input.nativeElement.value))
+})
 
- 
-  searchGood(event) {
-    
-  }
 
 
+}
 
+ngOnDestroy() {
+  this.subscription.unsubscribe();
+}
 
-  checkedGenre(event) {
-    this.input.nativeElement.value = ''
-    if(event === 'ALL') {
-      this.goods = [];
-      this.showSpinner = true;
-      this.mainGoodsService.getGoods().subscribe( goods=> {
-        this.goods = goods;
-        this.showSpinner = false
-      });
+checkedGenre(event) {
+    this.filtered = []
+    if( event === 'All') {
+      return
     }
-    else {
-      this.goods = [];
-    this.showSpinner = true;
-    this.mainGoodsService.getGoods().pipe(
-      map(goods => goods.filter(good => good.genre === event.toString())),
-    ).subscribe( goods=> {
-      this.goods = goods;
-      this.showSpinner = false;   
+    const value = this.store.value.goods;
+    value.forEach(element => {
+        if (element.genre === event.toString()) {
+          this.filtered.push(element)
+        }
     });
-    }
-  }
-
+}
+ 
   addToWishList(event) {
-
-  this.wishtListService.addToWishList(event,this.goods);
-  // this.mainGoodsService.getGoods().subscribe( goods=> {
-  //   this.goods = goods;
-  //   this.showSpinner = false
-  // });
-
-
-  }
+    const value = this.store.value.goods;
+    const goods = value.map ((item) => {
+      if ( event.item.id === item.id ) {
+        if(!(event.item.id in localStorage)) {
+          localStorage.setItem(event.item.id, 'true')
+        } else {
+          localStorage.removeItem(event.item.id);
+        }
+       
+        return {...item, ...event.item}
+      } else return item
+    })
+    this.store.set('goods', goods)
+}
 
   scrollTop() {
     window.scrollTo(0, 0);   
-  }
+}
 
 }
 

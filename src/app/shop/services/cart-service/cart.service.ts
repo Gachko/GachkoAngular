@@ -3,7 +3,7 @@ import { AuthService } from '../../../authentification/services/auth-service/aut
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Good } from '../../../models/goods.interface';
 import { Observable, of } from 'rxjs';
-import { map, switchMap, delay, distinct, tap } from 'rxjs/operators';
+import { map, switchMap, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,7 @@ export class CartService {
 
   cartGoods: Observable<Good[]>;
   clientDoc: AngularFirestoreDocument<Good>;
-  counter: number = 0;
-
+  counter = 0
   constructor( 
     private afs: AngularFirestore,
     private authService: AuthService 
@@ -39,7 +38,7 @@ getCart(): Observable<Good[]> {
         } else {
           return of([]);
         }
-    })
+    }),
   );
   
   

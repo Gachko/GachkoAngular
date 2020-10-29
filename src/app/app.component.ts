@@ -3,8 +3,7 @@ import { AuthService } from './authentification/services/auth-service/auth.servi
 import { CartService } from './shop/services/cart-service/cart.service';
 import { Router } from '@angular/router';
 
-
-interface INav {
+interface Nav {
   link: string,
   name: string,
   exact: boolean,
@@ -18,7 +17,11 @@ interface INav {
 })
 export class AppComponent implements  DoCheck, AfterViewInit {
 
-  nav: INav[] = [
+  @ViewChild('navtoggle', { static: false }) navToggle: ElementRef;
+  @ViewChild('menu', { static: false }) menu: ElementRef;
+  @ViewChild('header', { static: false }) header: ElementRef;
+
+  nav: Nav[] = [
     {
       link: '/',
       name: 'Главная',
@@ -55,16 +58,12 @@ export class AppComponent implements  DoCheck, AfterViewInit {
 
   title = 'vinylShop';
   lengthWishList: number ;
-
-  @ViewChild('navtoggle', { static: false }) navToggle: ElementRef;
-  @ViewChild('menu', { static: false }) menu: ElementRef;
-  @ViewChild('header', { static: false }) header: ElementRef;
-
   enter: string = this.authService.check?"Выйти":"Войти";
 
   constructor ( private authService: AuthService, 
                 private router: Router,
-                private cartService: CartService  ) {}
+                private cartService: CartService
+   ) {}
 
   isUser(){
     if ( this.authService.currentUser ) {
@@ -76,14 +75,13 @@ export class AppComponent implements  DoCheck, AfterViewInit {
 
   ngDoCheck() { 
     this.nav[4].quantity = this.cartService.counter;
-    this.nav[3].quantity = ("wishList" in localStorage)? JSON.parse(localStorage.getItem('wishList')).length : null;
+    this.nav[3].quantity = localStorage.length;
     this.enter = this.authService.check?"Выйти":"Войти";
     
   }
 
   ngAfterViewInit() {
-    this.header.nativeElement.classList.add('fixed');
-    
+    this.header.nativeElement.classList.add('fixed');   
   }
 
   toggleMenu() {

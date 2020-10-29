@@ -10,24 +10,16 @@ import { map } from 'rxjs/operators';
 export class AuthService {
 
   authState: any = null;
-
   check: boolean ;
   
   constructor(private afu: AngularFireAuth, 
               private router: Router) {
     this.afu.authState.subscribe((auth => {
       this.authState = auth;
-      this.check = (this.authState)? true : false;
+      this.check = (this.authState) ? true : false;
     }))
   }
 
-  get isUserAnonymousLoggedIn(): boolean {
-    return (this.authState !== null) ? this.authState.isAnonymous : false;
-  }
-
-  get currentUserId(): string {
-    return (this.authState !== null) ? this.authState.id : ''
-  }
 
   get currentUserName(): string {
     return this.authState['email'];
@@ -35,14 +27,6 @@ export class AuthService {
 
   get currentUser(): any {
     return (this.authState !== null) ? this.authState : null;
-  }
-
-  get isUserEmailLoggedIn(): boolean {
-    if ((this.authState !== null) && (!this.isUserAnonymousLoggedIn)) {
-      return true
-    } else {
-      return false
-    }
   }
 
   registerWithEmail(email: string, password: string) {

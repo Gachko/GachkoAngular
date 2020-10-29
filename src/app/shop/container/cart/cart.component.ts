@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {
   trigger,
-  state,
   style,
   transition,
-  animate,
-  keyframes,
-  group
+  animate
 } from '@angular/animations';
 
 import { Good } from '../../../models/goods.interface';
@@ -35,6 +32,7 @@ export class CartComponent implements OnInit {
   username = this.authService.currentUserName;
   items: Good[];
   showSpinner = true;
+  modalVisible = false;
 
   constructor(
     private authService: AuthService, 
@@ -59,17 +57,14 @@ export class CartComponent implements OnInit {
       return total + parseFloat(good.cost.toString())
     }, 0)
   }
-}
 
-
-function unique(arr) {
-  let result = [];
-
-  for (let str of arr) {
-    if (!result.includes(str)) {
-      result.push(str);
-    }
+  order() {
+    this.modalVisible = true;
+    setTimeout(() => {
+      this.modalVisible = false;
+    }, 2000)
+   
   }
-
-  return result;
 }
+
+

@@ -1,17 +1,17 @@
-<div *ngIf = "wishtListService.wishList.length; else message" class = "container">  
-    <ul  class = "list"> 
-        <app-goods-item  [items] = "wishtListService.wishList" (addToWishList) = "removeToWishList($event)" ></app-goods-item>        
-    </ul>
+<div  class="container">    
+    <ul *ngIf='counter; else message'  class="list"> 
+        <app-goods-item [goods]="wishList | async" (addToWishList)="removeToWishList($event)"></app-goods-item>
+   </ul>
 </div>
 
 <ng-template #message>
-    <div class = "container container-inner">
-        <div class = "message">
+    <div class="container container-inner">
+        <div class="message">
             <h3>
                 Список пожеланий пуст.
             </h3>
             <p>У вас пока нет товаров в списке пожеланий.</p>
-            <a [routerLink] = "['/shop']">В МАГАЗИН</a>
+        <a [routerLink]="['/shop']">В МАГАЗИН</a>
         </div>
     </div>
 </ng-template>

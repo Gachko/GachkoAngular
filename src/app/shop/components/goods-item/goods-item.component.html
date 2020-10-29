@@ -1,9 +1,9 @@
 <ul class = "list">
-  <li *ngFor = "let item of items; index as i" class = "item">
-    <div class = "card">
+  <li *ngFor = "let item of goods; index as i" class = "item">
+    <div  class = "card">
         <div class = "wrapper">
           <span  class = "item-like"  tooltip = "Добавить в избранное" #myTooltip = "tooltip" >
-            <span (click) = "add(i)" class="like" [class.active]="item.favourite" (mouseover) = "myTooltip.show()" (mouseout) = "myTooltip.hide()" ></span>
+            <span (click) = "add(i,'favourite')" class="like" [class.active]="item.favourite" (mouseover) = "myTooltip.show()" (mouseout) = "myTooltip.hide()" ></span>
           </span>
         <div class = "pic">
           <img class = "card__img" src = "{{item.pathToImg}}" alt = "{{item. name}}">
@@ -20,3 +20,4 @@
     </div>
   </li>
 </ul>
+

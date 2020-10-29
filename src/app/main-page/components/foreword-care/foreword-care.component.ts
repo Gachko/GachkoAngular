@@ -9,4 +9,8 @@ export class ForewordCareComponent  {
   
   pathToImg = '../../../../assets/man.jpg';
 
+  onTop() {
+    window.scrollTo(0,0);
+  }
+
 }

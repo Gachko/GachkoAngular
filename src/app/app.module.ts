@@ -4,13 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { CareModule } from './care/care.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import { AppComponent } from './app.component';
-import { NotFoundComponent } from './not-found/component/not-found.component';
-import { firebase } from '../environments/firebase';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { WishListService } from './wish-list.service'
+import { firebase } from '../environments/firebase';
+
+import { Store } from './store';
+import { AppComponent } from './app.component';
+import { NotFoundComponent } from './not-found/component/not-found.component';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { WishListService } from './wish-list.service'
     AngularFireDatabaseModule,
     AngularFirestoreModule, 
   ],
-  providers: [ WishListService ],
-  bootstrap: [AppComponent]
+  providers: [ Store ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

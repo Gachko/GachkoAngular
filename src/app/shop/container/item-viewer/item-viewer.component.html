@@ -1,6 +1,6 @@
 <div class="item-view"> 
     <app-spinner  *ngIf="showSpinner"></app-spinner>
-<div *ngIf="good || !showSpinner">
+<div *ngIf="good | async as good">
     <div class="home">
         <a  [routerLink] ="['/shop']">BACK TO SHOP</a>
     </div>
@@ -32,5 +32,7 @@
     </div>
 </div>
 
+
 <div class="notice" #notice>Товар добавлен в корзину</div>
 </div>
+

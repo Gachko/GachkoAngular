@@ -3,21 +3,23 @@ import { Component, ViewContainerRef, ViewChild, AfterContentInit, ComponentFact
 import { CareItemsService } from '../../services/careItems.service';
 import { CareItemComponent } from '../../components/care-item/care-item.component';
 import { CareItem } from '../../models/careItem.interface'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-care-blog',
-  providers: [CareItemsService],
+  providers: [ CareItemsService ],
   templateUrl: './care-blog.component.html',
   styleUrls: ['./care-blog.component.scss']
 })
-export class CareBlogComponent implements OnInit {
+export class CareBlogComponent implements OnInit, AfterContentInit {
 
   items: CareItem[];
 
   @ViewChild('item', { read: ViewContainerRef, static: true }) item: ViewContainerRef;
 
   constructor(private resolver: ComponentFactoryResolver,
-              private careService: CareItemsService) { }
+              private careService: CareItemsService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.items = this.careService.getItems();

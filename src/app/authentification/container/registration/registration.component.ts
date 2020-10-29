@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService} from '../../services/auth-service/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AngularFirestore } from '@angular/fire/firestore';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
 
   email = "";
   password="";
   message = '';
-
   errorMessage = ''; 
   error: { name: string, message: string} = {
     name: "",
@@ -21,10 +21,12 @@ export class RegistrationComponent implements OnInit {
   }; 
 
 
-  constructor(private afs: AngularFirestore,private authservice: AuthService, private router: Router, private flashMessages: FlashMessagesService) { }
-
-  ngOnInit(): void {
-  }
+  constructor(
+    private afs: AngularFirestore,
+    private authservice: AuthService, 
+    private router: Router, 
+    private flashMessages: FlashMessagesService
+) {}
 
   clearErrorMessage() {
     this.errorMessage = '';
@@ -32,8 +34,7 @@ export class RegistrationComponent implements OnInit {
   }
 
 
-  submit(user): void 
-  {
+  submit(user): void {
     this.clearErrorMessage()
     if(this.validateForm(user.email, user.password))
     {

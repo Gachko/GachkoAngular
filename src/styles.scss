@@ -84,6 +84,7 @@ h1,h2,h3,h4,h5 {
   height: 970px;
   background: url('./assets/registration.jpg') no-repeat center fixed;
   background-size: cover; 
+  background-attachment: fixed;
 }
 
 .alert-success {
