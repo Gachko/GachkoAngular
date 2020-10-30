@@ -1,15 +1,16 @@
 <div>
-        <ng-content select=".title"></ng-content>
+    <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+        <ng-content select = ".title"></ng-content>
         <label for="">
-            Email:
-            <input type="email" name="email" [(ngModel)]="email" placeholder="Введите логин" required>
+                Email:
+            <input type="email" name="email" [(ngModel)] ="email" placeholder="Введите логин" required>
         </label>
         <br>
         <label for="">
             Пароль:
-            <input type="password" name="password" [(ngModel)]="password" placeholder="Введите пароль" required>
+            <input type="password" name="password"  [(ngModel)] ="password" placeholder="Введите пароль" required>
         </label>
         <br>
-        <ng-content select="app-auth-remember"></ng-content>
         <ng-content select="button"></ng-content>
+    </form>
 </div>
